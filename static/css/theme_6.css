@@ -1,0 +1,792 @@
+/*
+|--------------------------------------------------------------------------
+| Theme Fonts
+|-------------------------------------------------------------------------- */
+/*--------------------------------------------------------------
+## Basic Color
+----------------------------------------------------------------*/
+@import url("css2.css");
+@import url("css21.css");
+/*
+|--------------------------------------------------------------------------
+| Theme Color Variable
+|-------------------------------------------------------------------------- */
+/*
+|--------------------------------------------------------------------------
+| Theme Spacial Style
+|-------------------------------------------------------------------------- */
+body,
+.cs-secondary_font {
+  font-family: "Roboto", sans-serif;
+}
+
+.cs-primary_font,
+h1,
+h2,
+h3,
+h4,
+h3,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+.cs-secondary_color {
+  color: #78778f;
+}
+
+h1,
+h2,
+h3,
+h4,
+h3,
+h6,
+.cs-nav .cs-nav_list .cs-mega-wrapper > li > a,
+.cs-nav .cs-nav_list .cs-mega-wrapper > li > a:hover,
+.cs-primary_color,
+.cs-primary_color_hover:hover,
+.cs-tab_links.cs-style4 .active a,
+.cs-footer_newsletter.cs-style1 .cs-footer_newsletter_input,
+.url {
+  color: #0b0a60;
+}
+
+.cs-primary_bg,
+.cs-primary_bg_hover:hover {
+  background-color: #0b0a60;
+}
+
+.cs-secondary_bg,
+.cs-secondary_bg_hover:hover {
+  background-color: #78778f;
+}
+
+.cs-primary_border,
+.cs-primary_border_hover:hover {
+  border-color: #0b0a60;
+}
+
+.cs-primary_30_color {
+  color: rgba(11, 10, 96, 0.3);
+}
+
+.cs-primary_40_color {
+  color: rgba(11, 10, 96, 0.4);
+}
+
+.cs-primary_50_color {
+  color: rgba(11, 10, 96, 0.5);
+}
+
+.cs-primary_60_color {
+  color: rgba(11, 10, 96, 0.6);
+}
+
+.cs-primary_70_color {
+  color: rgba(11, 10, 96, 0.7);
+}
+
+.cs-primary_80_color {
+  color: rgba(11, 10, 96, 0.8);
+}
+
+.cs-primary_90_color {
+  color: rgba(11, 10, 96, 0.9);
+}
+
+.cs-primary_10_border,
+.cs-primary_10_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.1);
+}
+
+.cs-primary_15_border,
+.cs-primary_15_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.15);
+}
+
+.cs-primary_20_border,
+.cs-primary_20_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.2);
+}
+
+.cs-primary_30_border,
+.cs-primary_30_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.3);
+}
+
+.cs-primary_40_border,
+.cs-primary_40_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.4);
+}
+
+.cs-primary_50_border,
+.cs-primary_50_border_hover:hover {
+  border-color: rgba(11, 10, 96, 0.5);
+}
+
+.cs-secondary_border,
+.cs-secondary_border_hover:hover {
+  border-color: #78778f;
+}
+
+a:hover,
+.cs-accent_color,
+.cs-accent_color_hover:hover,
+.cs-site_header.cs-style1 .current-menu-item > a,
+.cs-accordians.cs-style2 .cs-accordian_head:hover .cs-accordian_title,
+.cs-site_header.cs-style2 .cs-nav .cs-nav_list .current-menu-item > a,
+.comment-list .reply a,
+.cs-tab_links.cs-style2 .active a {
+  color: #1c19f1;
+}
+
+.cs-accent_10_color,
+.cs-accent_10_color_hover:hover {
+  color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-accent_20_color,
+.cs-accent_20_color_hover:hover {
+  color: rgba(28, 25, 241, 0.2);
+}
+
+.cs-accent_30_color,
+.cs-accent_30_color_hover:hover {
+  color: rgba(28, 25, 241, 0.3);
+}
+
+.cs-accent_40_color,
+.cs-accent_40_color_hover:hover {
+  color: rgba(28, 25, 241, 0.4);
+}
+
+.cs-accent_50_color,
+.cs-accent_50_color_hover:hover {
+  color: rgba(28, 25, 241, 0.5);
+}
+
+.cs-accent_60_color,
+.cs-accent_60_color_hover:hover {
+  color: rgba(28, 25, 241, 0.6);
+}
+
+.cs-accent_70_color,
+.cs-accent_70_color_hover:hover {
+  color: rgba(28, 25, 241, 0.7);
+}
+
+.cs-accent_80_color,
+.cs-accent_80_color_hover:hover {
+  color: rgba(28, 25, 241, 0.8);
+}
+
+.cs-accent_90_color,
+.cs-accent_90_color_hover:hover {
+  color: rgba(28, 25, 241, 0.9);
+}
+
+.cs-accent_color_2,
+.cs-accent_color_2_hover:hover,
+.cs-icon_box.cs-style2:hover .cs-add_btn,
+.cs-site_header.cs-style3 .cs-nav .cs-nav_list > li > a:hover,
+.cs-site_header.cs-style3 .cs-nav .cs-nav_list .current-menu-item > a,
+.cs-site_header.cs-style3 .cs-nav .cs-nav_list ul a:hover {
+  color: #02c4fe;
+}
+
+.cs-accent_10_color_2,
+.cs-accent_10_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-accent_20_color_2,
+.cs-accent_20_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.2);
+}
+
+.cs-accent_30_color_2,
+.cs-accent_30_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.3);
+}
+
+.cs-accent_40_color_2,
+.cs-accent_40_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.4);
+}
+
+.cs-accent_50_color_2,
+.cs-accent_50_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.5);
+}
+
+.cs-accent_60_color_2,
+.cs-accent_60_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.6);
+}
+
+.cs-accent_70_color_2,
+.cs-accent_70_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.7);
+}
+
+.cs-accent_80_color_2,
+.cs-accent_80_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.8);
+}
+
+.cs-accent_90_color_2,
+.cs-accent_90_color_2_hover:hover {
+  color: rgba(2, 196, 254, 0.9);
+}
+
+.cs-accent_bg,
+.cs-accent_bg_hover:hover,
+.cs-pricing_table.cs-style2:hover .cs-pricing_btn,
+.cs-site_header.cs-style2 .cs-hamburger.active,
+.cs-tab_links.cs-style5 .active a {
+  background-color: #1c19f1;
+}
+
+.cs-accent_1_bg,
+.cs-accent_1_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.01);
+}
+
+.cs-accent_2_bg,
+.cs-accent_2_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.02);
+}
+
+.cs-accent_3_bg,
+.cs-accent_3_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.03);
+}
+
+.cs-accent_4_bg,
+.cs-accent_4_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.04);
+}
+
+.cs-accent_5_bg,
+.cs-accent_5_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.05);
+}
+
+.cs-accent_6_bg,
+.cs-accent_6_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.06);
+}
+
+.cs-accent_7_bg,
+.cs-accent_7_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.07);
+}
+
+.cs-accent_8_bg,
+.cs-accent_8_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.08);
+}
+
+.cs-accent_9_bg,
+.cs-accent_9_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.09);
+}
+
+.cs-accent_10_bg,
+.cs-accent_10_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-accent_15_bg,
+.cs-accent_15_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.15);
+}
+
+.cs-accent_20_bg,
+.cs-accent_20_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.2);
+}
+
+.cs-accent_25_bg,
+.cs-accent_25_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.25);
+}
+
+.cs-accent_30_bg,
+.cs-accent_30_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.3);
+}
+
+.cs-accent_35_bg,
+.cs-accent_35_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.35);
+}
+
+.cs-accent_40_bg,
+.cs-accent_40_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.4);
+}
+
+.cs-accent_45_bg,
+.cs-accent_45_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.45);
+}
+
+.cs-accent_50_bg,
+.cs-accent_50_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.5);
+}
+
+.cs-accent_60_bg,
+.cs-accent_60_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.6);
+}
+
+.cs-accent_70_bg,
+.cs-accent_70_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.7);
+}
+
+.cs-accent_80_bg,
+.cs-accent_80_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.8);
+}
+
+.cs-accent_90_bg,
+.cs-accent_90_bg_hover:hover {
+  background-color: rgba(28, 25, 241, 0.9);
+}
+
+.cs-accent_bg_2,
+.cs-accent_bg_2_hover:hover,
+.cs-site_header.cs-style2.cs-sticky-active,
+.cs-team_member.cs-style4 .cs-member_social_toggle.active {
+  background-color: #02c4fe;
+}
+
+.cs-accent_1_bg_2,
+.cs-accent_1_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.01);
+}
+
+.cs-accent_2_bg_2,
+.cs-accent_2_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.02);
+}
+
+.cs-accent_3_bg_2,
+.cs-accent_3_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.03);
+}
+
+.cs-accent_4_bg_2,
+.cs-accent_4_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.04);
+}
+
+.cs-accent_5_bg_2,
+.cs-accent_5_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.05);
+}
+
+.cs-accent_6_bg_2,
+.cs-accent_6_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.06);
+}
+
+.cs-accent_7_bg_2,
+.cs-accent_7_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.07);
+}
+
+.cs-accent_8_bg_2,
+.cs-accent_8_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.08);
+}
+
+.cs-accent_9_bg_2,
+.cs-accent_9_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.09);
+}
+
+.cs-accent_10_bg_2,
+.cs-accent_10_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-accent_15_bg_2,
+.cs-accent_15_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.15);
+}
+
+.cs-accent_20_bg_2,
+.cs-accent_20_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.2);
+}
+
+.cs-accent_25_bg_2,
+.cs-accent_25_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.25);
+}
+
+.cs-accent_30_bg_2,
+.cs-accent_30_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.3);
+}
+
+.cs-accent_35_bg_2,
+.cs-accent_35_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.35);
+}
+
+.cs-accent_40_bg_2,
+.cs-accent_40_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.4);
+}
+
+.cs-accent_45_bg_2,
+.cs-accent_45_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.45);
+}
+
+.cs-accent_50_bg_2,
+.cs-accent_50_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.5);
+}
+
+.cs-accent_60_bg_2,
+.cs-accent_60_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.6);
+}
+
+.cs-accent_70_bg_2,
+.cs-accent_70_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.7);
+}
+
+.cs-accent_80_bg_2,
+.cs-accent_80_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.8);
+}
+
+.cs-accent_90_bg_2,
+.cs-accent_90_bg_2_hover:hover {
+  background-color: rgba(2, 196, 254, 0.9);
+}
+
+.cs-border_color {
+  border-color: rgba(11, 10, 96, 0.1);
+}
+
+.cs-accent_border,
+.cs-accent_border_hover:hover,
+.cs-nav .cs-nav_list ul,
+.cs-slider_nav .slick-current .cs-slider_mini_thumb,
+.cs-slider_nav_1 .slick-current .cs-slider_mini_thumb,
+.ui-slider .ui-state-active {
+  border-color: #1c19f1;
+}
+
+.cs-accent_10_border,
+.cs-accent_10_border_hover:hover,
+.comment-list .children,
+.comment-list .children .comment:not(:first-child) {
+  border-color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-accent_15_border,
+.cs-accent_15_border_hover:hover {
+  border-color: rgba(28, 25, 241, 0.15);
+}
+
+.cs-accent_20_border,
+.cs-accent_20_border_hover:hover {
+  border-color: rgba(28, 25, 241, 0.2);
+}
+
+.cs-accent_30_border,
+.cs-accent_30_border_hover:hover {
+  border-color: rgba(28, 25, 241, 0.3);
+}
+
+.cs-accent_40_border,
+.cs-accent_40_border_hover:hover {
+  border-color: rgba(28, 25, 241, 0.4);
+}
+
+.cs-accent_border_2,
+.cs-accent_border_2_hover:hover,
+.cs-team_member.cs-style8:hover .cs-member_image img,
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  border-color: #02c4fe;
+}
+
+.cs-accent_10_border_2,
+.cs-accent_10_border_2_hover:hover {
+  border-color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-accent_15_border_2,
+.cs-accent_15_border_2_hover:hover {
+  border-color: rgba(2, 196, 254, 0.15);
+}
+
+.cs-accent_20_border_2,
+.cs-accent_20_border_2_hover:hover {
+  border-color: rgba(2, 196, 254, 0.2);
+}
+
+.cs-accent_30_border_2,
+.cs-accent_30_border_2_hover:hover {
+  border-color: rgba(2, 196, 254, 0.3);
+}
+
+.cs-accent_40_border_2,
+.cs-accent_40_border_2_hover:hover {
+  border-color: rgba(2, 196, 254, 0.4);
+}
+
+.cs-player_btn.cs-style2 .cs-player_btn_in::after {
+  -webkit-box-shadow: 0px 10px 40px 0px rgba(28, 25, 241, 0.6);
+          box-shadow: 0px 10px 40px 0px rgba(28, 25, 241, 0.6);
+}
+
+.cs-nav .cs-nav_list ul a:hover {
+  background-color: rgba(28, 25, 241, 0.1);
+  color: #1c19f1;
+}
+
+.cs-gradient_bg_1 {
+  background: linear-gradient(45deg, rgba(110, 66, 211, 0.07) 0%, rgba(252, 91, 77, 0.07) 100%);
+}
+
+.cs-gradient_bg_2 {
+  background: linear-gradient(45deg, rgba(255, 246, 245, 0) 0%, #fff6f5 100%);
+}
+
+.cs-btn.cs-style6.cs-accent_bg .cs-btn_icon {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cs-btn.cs-style6.cs-accent_bg:hover .cs-btn_icon {
+  background-color: #1c19f1;
+}
+
+.cs-btn.cs-style6.cs-accent_color .cs-btn_icon {
+  background-color: #1c19f1;
+}
+
+.cs-btn.cs-style6.cs-accent_color:hover .cs-btn_icon {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cs-btn.cs-style6.cs-accent_bg_2 .cs-btn_icon {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cs-btn.cs-style6.cs-accent_bg_2:hover .cs-btn_icon {
+  background-color: #02c4fe;
+}
+
+.cs-btn.cs-style6.cs-accent_color_2 .cs-btn_icon {
+  background-color: #02c4fe;
+}
+
+.cs-btn.cs-style6.cs-accent_color_2:hover .cs-btn_icon {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cs-tab_links.cs-style1 {
+  background-color: rgba(28, 25, 241, 0.15);
+}
+
+.cs-tab_links.cs-style1 li:not(.active) a:hover {
+  color: #1c19f1;
+  background-color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-tab_links.cs-style1 .active a {
+  background-color: #1c19f1;
+}
+
+.cs-tab_links.cs-style3 a {
+  background-color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-tab_links.cs-style3 a:hover {
+  color: #fff;
+  background-color: #02c4fe;
+}
+
+.cs-tab_links.cs-style3 .active a {
+  background-color: #02c4fe;
+  color: #fff;
+}
+
+.cs-portfolio.cs-style2 .cs-portfolio_info {
+  background: -webkit-gradient(linear, left bottom, left top, from(#1c19f1), to(rgba(5, 144, 255, 0)));
+  background: linear-gradient(0deg, #1c19f1 0%, rgba(5, 144, 255, 0) 100%);
+}
+
+.cs-hero.cs-style6,
+.cs-shape_bg:after,
+.cs-testimonial.cs-style6 .cs-testimonial_text {
+  background-color: rgba(28, 25, 241, 0.04);
+}
+
+.cs-testimonial.cs-style6 .cs-testimonial_text:before {
+  border-top-color: rgba(28, 25, 241, 0.04);
+}
+
+.cs-isotop_filter.cs-style1 .active a {
+  color: #02c4fe;
+  background-color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-icon_box.cs-style7:hover .cs-icon_box_icon {
+  background-color: #1c19f1;
+}
+
+.cs-icon_box.cs-style7:hover .cs-icon_box_info {
+  background-color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-icon_box.cs-style7:hover .cs-icon_box_title {
+  color: #1c19f1;
+}
+
+.cs-team_member.cs-style7:hover .cs-team_member_bg {
+  background-color: rgba(28, 25, 241, 0.1);
+}
+
+.cs-shape_bg.cs-style8:after {
+  background-color: #02c4fe;
+}
+
+.cs-counter.cs-style5:hover .cs-counter_number {
+  color: #02c4fe;
+}
+
+.cs-counter.cs-style5:hover .cs-counter_title {
+  color: #78778f;
+}
+
+[class*="cs-gradient_overlay_"]::after {
+  background: linear-gradient(60deg, #02c4fe 13%, #1c19f1 100%);
+}
+
+.cs-post_pagination.cs-style1 .page-numbers .page-number.next {
+  color: #1c19f1;
+}
+
+.cs-post_pagination.cs-style1 .page-numbers .page-number:hover {
+  background-color: rgba(28, 25, 241, 0.1);
+  color: #1c19f1;
+}
+
+.cs-post_pagination.cs-style1 .page-numbers .page-number.current {
+  background-color: #1c19f1;
+}
+
+.cs-post6_wrap .cs-post.cs-style6:not(:last-child) {
+  border-bottom-color: rgba(2, 196, 254, 0.2);
+}
+
+.cs-team_member.cs-style3 .cs-member_info:after {
+  background: linear-gradient(45deg, #02c4fe 0%, #1c19f1 100%);
+}
+
+.cs-team_member.cs-style3 .cs-member_btn {
+  background: linear-gradient(45deg, #02c4fe 0%, #1c19f1 100%);
+}
+
+.cs-counter.cs-style3 .cs-counter_icon:after {
+  background: linear-gradient(45deg, #02c4fe 0%, #1c19f1 100%);
+}
+
+.cs-post_pagination.cs-style2 .page-numbers a.page-number:hover,
+.cs-post_pagination.cs-style2 .page-numbers .current {
+  color: #1c19f1;
+  border-color: rgba(28, 25, 241, 0.3);
+}
+
+.cs-post_pagination.cs-style2 .page-numbers a.next {
+  background-color: rgba(28, 25, 241, 0.1);
+  border-color: transparent;
+}
+
+.cs-post_pagination.cs-style2 .page-numbers a.next:hover {
+  color: #fff;
+  background-color: #1c19f1;
+}
+
+.cs-sidebar_widget_title::after {
+  background-color: #1c19f1;
+}
+
+.searchform input#s,
+.tagcloud a {
+  background-color: rgba(2, 196, 254, 0.15);
+}
+
+.searchform:after,
+.tagcloud a:hover {
+  background-color: #02c4fe;
+}
+
+.ui-widget-content {
+  background: rgba(2, 196, 254, 0.2);
+}
+
+.ui-widget-header {
+  background: #02c4fe;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: rgba(2, 196, 254, 0.1);
+}
+
+.select2-container--default
+.select2-results__option--highlighted[aria-selected] {
+  background: #02c4fe;
+}
+
+.ui-slider .ui-state-active {
+  background: #1c19f1;
+}
+
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow
+b {
+  border-color: rgba(11, 10, 96, 0.4) transparent transparent transparent;
+}
+
+.select2-container--default.select2-container--open
+.select2-selection--single
+.select2-selection__arrow
+b {
+  border-color: transparent transparent rgba(11, 10, 96, 0.4) transparent;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-dropdown,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border-color: rgba(2, 196, 254, 0.1);
+}
+
+.cs-checkout_select .select2-container--default .select2-selection--single,
+.cs-checkout_select .select2-dropdown {
+  background-color: rgba(2, 196, 254, 0.07);
+}
+
+.cs-checkbox input:checked + label:before,
+.cs-radio input:checked + label:before {
+  border-color: #1c19f1;
+}
+
+.cs-checkbox label:after,
+.cs-radio label:after {
+  background-color: #1c19f1;
+}

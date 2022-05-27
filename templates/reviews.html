@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>武汉大学人机交互与用户行为研究中心</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+
+	<div class="jumbotron bg-secondary text-white text-center">
+		<h1>汉藏双语识别结果
+	</div>
+
+	<h4 align="center"> 您输入的原文</h4>
+	<div class="text-center">
+		<font size="4"> {{ review }} </font>
+	</div>
+
+	<h4 align="center"> 您认为的实体有哪些 </h4>
+	<div class="container">
+		<div class="text-center">
+			<form method="post" action="/reviews-thanks" enctype="multipart/form-data">
+				<div class="form-group text-center">
+					<div class="form-group">
+						<div class="text-center">
+							<font size="4"> 与藏族节日相关的实体，节日本体、节日事件、节日物品、节日地点 </font>
+						</div>
+						<textarea class="form-control" id="exampleTextarea" name="correction"
+							style="width: 1200px; font-size:1em"
+							placeholder="在此输入">{{ correction }}</textarea>
+						<input type=hidden value="{{ review }}" name='review'>
+					</div>
+					<button type="submit" class="btn btn-primary"> 提交 </button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

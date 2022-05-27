@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>武汉大学人机交互与用户行为研究中心汉藏双语命名识别系统</title>
+    <meta name="author" content="Laralink">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/lightgallery.min.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/style.css"> 
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="static/css/theme_6.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/HCI_LOGO_20.png') }}" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <header class="cs-site_header cs-style1 cs-type2 cs-sticky-header cs-primary_font wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="cs-main_header" >
+          <div class="container" id="home">
+            <div class="cs-main_header_in">
+              <div class="cs-main_header_left">
+                <a class="cs-site_branding" href="http://hci.whu.edu.cn/"><img src="static/logo.png" alt="" height=150%></a>
+              </div>
+              <div class="cs-main_header_center">
+                <div class="cs-nav">
+                  <ul class="cs-nav_list">
+                    <li><a href="#home" class="cs-smoth_scroll">首页</a></li>
+                    <li><a href="#input" class="cs-smoth_scroll">开始</a></li>
+                    <li><a href="#feature" class="cs-smoth_scroll">特点</a></li>
+                    <li><a href="#contact" class="cs-smoth_scroll">联系我们</a></li>
+<!--                    <li><a href="#blogs" class="cs-smoth_scroll">Blogs</a></li>-->
+                  </ul>
+                </div>
+              </div>
+<!--              <div class="cs-main_header_right">-->
+<!--                <div class="cs-toolbox">-->
+<!--                  <a href="#download" class="cs-btn cs-style6 cs-btn_md cs-rounded cs-primary_font cs-medium cs-accent_bg cs-white cs-accent_border cs-accent_10_bg_hover cs-accent_30_border_hover cs-smoth_scroll"><span class="cs-btn_text">Get Started</span></a>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="cs-hero cs-style6 cs-center">
+        <div class="container">
+          <div class="cs-hero_text wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="cs-hero_subtitle">武汉大学人机交互与用户行为研究中心</div>
+            <h1 class="cs-hero_title">汉藏双语<br><b class="cs-accent_color">藏族传统节日</b> <br><b class="cs-accent_color">命名实体识别系统</b></h1>
+            <!-- <div class="cs-hero_btns">
+              <a href="#" class="cs-btn cs-style6 cs-btn_lg cs-rounded cs-primary_font cs-medium cs-accent_bg cs-white cs-accent_border cs-accent_10_bg_hover cs-accent_30_border_hover">
+                <span class="cs-btn_text">Download App</span>
+                <span class="cs-btn_icon cs-center cs-white"><i class="fas fa-angle-double-right"></i></span>
+              </a>
+              <a href="javascript:;" class="cs-player_btn cs-style1 cs-btn_md cs-center cs-video_open cs-accent_color">
+                <span class="cs-player_btn_in cs-center cs-accent_15_bg"><i class="fas fa-play"></i></span>
+                <span class="cs-video_animaiton cs-center cs-accent_30_border cs-accent_50_color">
+                  <span><span></span></span>
+                </span>
+              </a>
+            </div> -->
+          </div>
+          <div class="text-center">
+
+            <form method="post" action="/results" enctype="multipart/form-data">
+                <div class="form-group text-center"  id="input">
+                    <div class="form-group">
+                        <h3 style="padding:0px 20px;background-color: rgba(208, 208, 208, 0);font-size:34px;line-height: 50px;color:#1c19f1;font-weight:bold;margin: 5px 0;">在此输入汉语|藏语文本</h3>
+                        <textarea class="form-control" id="exampleTextarea" name="message"
+                            style="width: 1200px; font-size:20px; overflow: auto; border:0;border-radius:5px;background-color:rgba(241,241,241,.98);height: 180px;padding: 10px;resize: none;" placeholder="12月4日是工布新年的大年三十，这是西藏乃至全中国最早的新年。除夕之夜，大昭寺的工布藏族按照习俗进行驱鬼仪式，并把过年用的食物措、油“炸果子”、牛羊肉等摆在木盘中“请狗赴宴”。狗吃饱后，人们围坐一圈，喝青稞酒，还要吃结达。">{{ message }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">识别</button>
+                </div>
+            </form>
+<script>document.getElementById("exampleTextarea").value="12月4日是工布新年的大年三十，这是西藏乃至全中国最早的新年。除夕之夜，大昭寺的工布藏族按照习俗进行驱鬼仪式，并把过年用的食物措、油“炸果子”、牛羊肉等摆在木盘中“请狗赴宴”。狗吃饱后，人们围坐一圈，喝青稞酒，还要吃结达。"</script>
+
+        </div>
+        </div>
+        <!-- <div class="cs-hero_img cs-parallax wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.4s">
+          <div class="cs-to_right"><img src="static/picture/hero-img.png" alt=""></div>
+        </div> -->
+
+       
+      </div>
+
+
+
+      <!-- <div class="container"> -->
+
+
+        
+
+        <!-- <div class="text-center" style="margin-bottom: 50px">
+            {% if predict %}
+
+            <h1> {{ answer }}</h1>
+            {% endif %}
+        </div> -->
+<!-- 
+    </div> -->
+
+  <!-- Start Service -->
+  <div id="feature">
+    <div class="cs-height_175 cs-height_lg_80"></div>
+    <div class="container">
+      <div class="cs-section_heading cs-style2 cs-size2 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="cs-section_subtitle">What we do for you</div>
+        <h2 class="cs-section_title">系统 <b class="cs-accent_color">创新之处</b></h2>
+      </div>
+      <div class="cs-height_65 cs-height_lg_45"></div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="cs-icon_box cs-style3 cs-color1 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+            <h2 class="cs-icon_box_title cs-semi_bold">汉藏双语支持</h2>
+            <div class="cs-icon_box_subtitle">分别利用汉语藏语Roberta预训练模型训练出针对藏族传统节日的模型，在汉语与藏语上的准确率分别为92.5%、86.27%。</div>
+          </div>
+          <div class="cs-height_30 cs-height_lg_30"></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="cs-icon_box cs-style3 cs-color1 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            
+            <h2 class="cs-icon_box_title cs-semi_bold">针对藏族节日的识别</h2>
+            <div class="cs-icon_box_subtitle">关注与节日密切相关的实体，如节日本体、节日活动、节日物品、节日地点等。
+            </div>
+          </div>
+          <div class="cs-height_30 cs-height_lg_30"></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="cs-icon_box cs-style3 cs-color1 text-center wow fadeIn" data-wow-duration="1s" data-wow-delay="0.35s">
+            
+            <h2 class="cs-icon_box_title cs-semi_bold">双语的自动识别支持</h2>
+            <div class="cs-icon_box_subtitle">根据输入语言的不同，系统会自动调用相应的模型进行预测。</div>
+          </div>
+          <div class="cs-height_30 cs-height_lg_30"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-height_110 cs-height_lg_50"></div>
+  </div>
+  <!-- End Service -->
+
+
+    <!--    <h3 class="text-center">Made by <a href="https://github.com/kevindegila" target="_blank"> Kevin Degila</a> </h3>-->
+
+    <footer class="cs-footer cs-style2 cs-bg cs-accent_4_bg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-src="static/image/footer-bg.png" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cs-footer_newsletter cs-style1">
+              <h2 class="cs-footer_newsletter_title"><b>联系</b> 我们</h2>
+              <h2 class="cs-footer_newsletter_title" style="font-size: 25px;"><b>sparklingdeng@whu.edu.cn</b></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-white_bg">
+        <div class="cs-copyright cs-accent_8_bg" style="text-align: center;">
+            Copyright &copy; 2022.武汉大学人机交互与用户行为研究中心 All rights reserved.<a target="_blank" href="http://hci.whu.edu.cn/"></a>
+        </div>
+      </div>
+    </footer>
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="static/js/isotope.pkg.min.js"></script>
+    <script src="static/js/jquery.slick.min.js"></script>
+    <script src="static/js/lightgallery.min.js"></script>
+    <script src="static/js/jquery.counter.min.js"></script>
+    <script src="static/js/wow.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <a href="#" style="display:none;"></a>
+</body>
+
+</html>
