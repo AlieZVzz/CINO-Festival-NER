@@ -96,7 +96,9 @@ def train(model, iterator, optimizer, scheduler, criterion, device, epoch):
 
         if i == 0:
             logger.info("=====sanity check======")
-            logger.info("words:", words[0])
+            # print(words[0])
+            # print(type(words[0]))
+            logger.info("words:%s", words[0])
             logger.info("x:%s", x.cpu().numpy()[0][:seqlens[0]])
             # logger.info("tokens:", tokenizer.convert_ids_to_tokens(x.cpu().numpy()[0])[:seqlens[0]])
             logger.info("y:%s", _y.cpu().numpy()[0][:seqlens[0]])
@@ -176,8 +178,8 @@ def eval(model, iterator, f, device):
     #     else:
     #         f1 = 0
 
-    final = time_stamp + "_epoch" + f + ".P%.2f_R%.2f_F%.2f.txt" % (
-    sum(precision_list) / len(precision_list), sum(recall_list) / len(recall_list), sum(f1_list) / len(f1_list))
+    final = f + "_epoch" + time_stamp + ".P%.2f_R%.2f_F%.2f.txt" % (
+        sum(precision_list) / len(precision_list), sum(recall_list) / len(recall_list), sum(f1_list) / len(f1_list))
     with open(final, 'w', encoding='utf-8') as fout:
         result = open("temp", "r", encoding='utf-8').read()
         fout.write(f"{result}\n")
@@ -195,10 +197,10 @@ def eval(model, iterator, f, device):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--batch_size", type=int, default=64)
-parser.add_argument("--lr", type=float, default=0.002)
+parser.add_argument("--lr", type=float, default=0.00001)
 parser.add_argument("--n_epochs", type=int, default=50)
 parser.add_argument("--patience", type=int, default=5)
-parser.add_argument("--seed", type=int, default=2022)
+parser.add_argument("--seed", type=int, default=2023)
 parser.add_argument("--warmup_rate", type=float, default=0.1)
 parser.add_argument("--weight_decay", type=float, default=1e-4)
 parser.add_argument("--finetuning", dest="finetuning", action="store_true")
@@ -207,9 +209,9 @@ parser.add_argument("--logdir", type=str, default="checkpoints/01")
 parser.add_argument("--language", type=str, default="bo")
 parser.add_argument("--trainset", type=str, default="data_collect/bo_train_bmes.txt")
 parser.add_argument("--validset", type=str, default="data_collect/bo_valid_bmes.txt")
-parser.add_argument("--model", type=str, default='fasttext')
-parser.add_argument("--fasttext", type=bool, default=True)
-parser.add_argument("--train_type", type=str, default='bilstm_crf')  # PLM_bilstm_crf bilstm_crf bert_crf
+parser.add_argument("--model", type=str, default='CINO')
+parser.add_argument("--fasttext", type=bool, default=False)
+parser.add_argument("--train_type", type=str, default='PLM_bilstm_crf')  # PLM_bilstm_crf bilstm_crf bert_crf
 hp = parser.parse_args()
 
 setup_seed(hp.seed)

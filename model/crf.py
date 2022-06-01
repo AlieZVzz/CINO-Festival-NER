@@ -9,7 +9,8 @@
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import XLMRobertaModel, BertModel, AutoModel
+from transformers import XLMRobertaModel, BertModel, AutoModel, AutoModelForMaskedLM
+
 
 def argmax(vec):
     # return the argmax as a python int
@@ -41,11 +42,12 @@ class Bert_BiLSTM_CRF(nn.Module):
         if self.model == 'bert':
             self.bert = AutoModel.from_pretrained('model/bert-base-chinese')
         elif self.model == 'CINO':
-            self.bert = XLMRobertaModel.from_pretrained('model/CINO_base')
+            self.bert = AutoModel.from_pretrained('model/CINO_base')
         elif self.model == 'Roberta':
             self.bert = AutoModel.from_pretrained('model/roberta-base-bo')
         elif self.model == 'fasttext':
-            self.embedding = nn.Embedding.from_pretrained(torch.from_numpy(np.load('model/bo_wordVectors.npy')), freeze=False)
+            self.embedding = nn.Embedding.from_pretrained(torch.from_numpy(np.load('model/bo_wordVectors.npy')),
+                                                          freeze=False)
             hidden_dim = 300
         self.lstm = nn.LSTM(bidirectional=True, num_layers=2, input_size=hidden_dim, hidden_size=hidden_dim // 2,
                             batch_first=True)
@@ -57,13 +59,12 @@ class Bert_BiLSTM_CRF(nn.Module):
         self.end_label_id = self.tag_to_ix['<SEP>']
         self.fc = nn.Linear(hidden_dim, self.tagset_size)
 
-
-            # fasttext_embedding = TokenEmbedding('./model/sgns.renmin.bigram')
-            # embeds = fasttext_embedding[self.vocab.idx_to_token]
-            # self.embedding.weight.data.copy_(embeds)
-            # self.embedding.weight.requires_grad = False
-            # for param in self.embedding.parameters():
-            #     param.requires_grad = True
+        # fasttext_embedding = TokenEmbedding('./model/sgns.renmin.bigram')
+        # embeds = fasttext_embedding[self.vocab.idx_to_token]
+        # self.embedding.weight.data.copy_(embeds)
+        # self.embedding.weight.requires_grad = False
+        # for param in self.embedding.parameters():
+        #     param.requires_grad = True
         # for param in self.bert.parameters():
         #     param.requires_grad = True
 
@@ -124,10 +125,13 @@ class Bert_BiLSTM_CRF(nn.Module):
         enc: [batch_size, sent_len, 768]
         """
         with torch.no_grad():
-            encoded_layer, _ = self.bert(x, return_dict=False)
+            encoded_layer = self.bert(x, return_dict=False)
+            # print(encoded_layer)
+            # print(encoded_layer[0].shape)
+
         # enc = encoded_layer[-1]
         # print(enc.shape)
-        return encoded_layer
+        return encoded_layer[0]
 
     def _viterbi_decode(self, feats):
         '''

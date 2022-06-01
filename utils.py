@@ -54,7 +54,7 @@ class NerDataset(Dataset):
             self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
         elif self.model == 'CINO':
             bert_model = 'model/CINO_base'
-            self.tokenizer = XLMRobertaTokenizer.from_pretrained(bert_model)
+            self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
         elif self.model == 'Roberta':
             bert_model = 'model/roberta-base-bo'
             self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
@@ -80,11 +80,17 @@ class NerDataset(Dataset):
             else:
                 tokens = self.tokenizer.tokenize(w) if w not in ("<CLS>", "<SEP>") else [w]
                 # tokens = w if w not in ("<CLS>", "<SEP>") else [w]
-                xx = self.tokenizer.convert_tokens_to_ids(tokens)
-                assert len(tokens) == len(xx), f"len(tokens)={len(tokens)}, len(xx)={len(xx)}"
-                is_head = [1] + [0] * (len(tokens) - 1)
+                xx = self.tokenizer.convert_tokens_to_ids(w)
 
+                # CINO
+                # xx = [xx]
+                assert len(tokens) == len(xx), f"len(tokens)={len(tokens)}, len(xx)={len(xx)}"
+                # 非 CINO
+                is_head = [1] + [0] * (len(tokens) - 1)
                 t = [t] + ['<PAD>'] * (len(tokens) - 1)
+                # CINO
+                # is_head = [1] + [0] * (len(xx) - 1)
+                # t = [t] + ['<PAD>'] * (len(xx) - 1)
             # print(xx)
 
 

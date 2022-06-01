@@ -102,7 +102,6 @@
 工 O
 作 O
 
- O
 ཧ O
 ྭ O
 ་ O
@@ -207,7 +206,6 @@
 ེ O
 ད O
 
- O
 ག O
 ཞ O
 ི O
@@ -340,7 +338,6 @@
 ོ O
 ད O
 
- O
 ས O
 ྤ O
 ྱ O
@@ -567,7 +564,6 @@
 节 B-Festival
 日 E-Festival
 
- O
 མ O
 ི O
 ང O
@@ -620,7 +616,6 @@
 ེ O
 ད O
 
- O
 ཚ O
 ང O
 ་ O
@@ -895,8 +890,6 @@
 雨 O
 顺 O
 
- O
- O
 图 O
 为 O
 工 B-Festival
@@ -924,15 +917,12 @@
 影 O
 留 O
 念 O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 工 B-Festival
@@ -954,15 +944,12 @@
 客 O
 敬 O
 酒 O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 一 O
@@ -978,15 +965,12 @@
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 大 O
@@ -997,15 +981,12 @@
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 藏 O
@@ -1020,7 +1001,6 @@
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
@@ -1060,7 +1040,6 @@
 着 O
 吃 O
 
- O
 ད O
 ག O
 ུ O
@@ -1302,7 +1281,6 @@
 大 O
 餐 O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -1482,7 +1460,6 @@
 ོ O
 ད O
 
- O
 ལ O
 ོ O
 ་ O
@@ -1557,7 +1534,6 @@
 ག M-Event
 ར M-Event
 ། E-Event
- O
 ཚ B-Event
 ོ M-Event
 ང M-Event
@@ -1625,7 +1601,6 @@
 པ O
 ས O
 
- O
 མ O
 ང O
 ་ O
@@ -1683,7 +1658,6 @@
 ང O
 ་ O
 
- O
 ར O
 ི O
 ག O
@@ -2101,7 +2075,6 @@
 环 O
 境 O
 
- O
 ལ O
 ོ O
 ་ O
@@ -2286,7 +2259,6 @@
 过 O
 年 O
 
- O
 2 O
 0 O
 1 O
@@ -2656,7 +2628,6 @@
 新 M-Festival
 年 E-Festival
 
- O
 ག O
 ད O
 ན O
@@ -2875,7 +2846,6 @@
 喝 O
 彩 O
 
- O
 ད B-Location
 བ M-Location
 ུ M-Location
@@ -3176,7 +3146,6 @@
 ེ O
 ད O
 
- O
 ད O
 ེ O
 ་ O
@@ -3301,7 +3270,6 @@
 ེ O
 ད O
 
- O
 འ B-Location
 བ M-Location
 ྲ M-Location
@@ -3628,7 +3596,6 @@
 十 O
 足 O
 
- O
 ག O
 ས O
 ར O
@@ -4278,7 +4245,6 @@
 唱 M-Event
 歌 E-Event
 
- O
 འ O
 ཛ O
 མ O
@@ -4341,7 +4307,6 @@
 ེ O
 ད O
 
- O
 ཁ O
 ྱ O
 ད O
@@ -4636,7 +4601,6 @@
 岁 O
 首 O
 
- O
 ར B-Item
 ོ M-Item
 ལ M-Item
@@ -5225,7 +5189,6 @@
 形 O
 式 O
 
- O
 ལ O
 ྷ O
 ་ O
@@ -5422,7 +5385,6 @@
 ང O
 ་ O
 
- O
 ར B-Location
 ང M-Location
 ་ M-Location
@@ -5535,7 +5497,6 @@
 ྟ O
 ེ O
 
- O
 ཡ O
 ོ O
 མ O
@@ -5750,7 +5711,6 @@
 起 O
 来 O
 
- O
 ས O
 ྒ O
 ོ O
@@ -5768,7 +5728,6 @@
 ང M-Location
 ་ E-Location
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -6036,7 +5995,6 @@
 历 O
 史 O
 
- O
 ཟ O
 ླ O
 ་ O
@@ -6180,7 +6138,6 @@
 ེ O
 ད O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -6840,7 +6797,6 @@
 左 O
 右 O
 
- O
 ན O
 ག O
 ་ O
@@ -7262,7 +7218,6 @@ V O
 首 O
 播 O
 
- O
 འ B-Festival
 ོ M-Festival
 ང M-Festival
@@ -7702,7 +7657,6 @@ V O
 件 O
 上 O
 
- O
 ལ O
 ོ O
 ་ O
@@ -8037,7 +7991,6 @@ V O
 老 O
 师 O
 
- O
 ལ B-Location
 ྷ M-Location
 ་ M-Location
@@ -8234,7 +8187,6 @@ V O
 ང O
 ་ O
 
- O
 ས O
 ྐ O
 བ O
@@ -8379,7 +8331,6 @@ V O
 ོ O
 ད O
 
- O
 ར O
 ྒ O
 ྱ O
@@ -8663,7 +8614,6 @@ V O
 热 O
 销 O
 
- O
 ད O
 ག O
 ུ O
@@ -8848,7 +8798,6 @@ V O
 喜 O
 人 O
 
- O
 ལ O
 ོ O
 ་ O
@@ -9041,7 +8990,6 @@ V O
 味 O
 料 O
 
- O
 ད O
 ་ O
 ག B-Item
@@ -9116,7 +9064,6 @@ V O
 ེ O
 ར O
 
- O
 མ B-Location
 འ M-Location
 ོ M-Location
@@ -9307,7 +9254,6 @@ V O
 ” E-Event
 等 O
 
- O
 ཉ O
 ི O
 ན O
@@ -9608,7 +9554,6 @@ V O
 时 O
 间 O
 
- O
 ཞ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -9736,7 +9681,6 @@ V O
 ང O
 ་ O
 
- O
 ར O
 ི O
 ག O
@@ -10143,7 +10087,6 @@ V O
 整 O
 天 O
 
- O
 འ O
 ཛ O
 མ O
@@ -10581,7 +10524,6 @@ V O
 ་ O
 ལ O
 
- O
 ས O
 ་ O
 ག O
@@ -10979,7 +10921,6 @@ V O
 心 O
 愿 O
 
- O
 ཞ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -11107,7 +11048,6 @@ V O
 ང O
 ་ O
 
- O
 ལ O
 ོ O
 ་ O
@@ -11204,7 +11144,6 @@ V O
 ེ O
 ད O
 
- O
 ད O
 ེ O
 ་ O
@@ -11476,7 +11415,6 @@ V O
 个 O
 字 O
 
- O
 ལ B-Location
 ྷ M-Location
 ་ M-Location
@@ -12237,7 +12175,6 @@ V O
 年 O
 了 O
 
- O
 ང O
 ་ O
 ཚ O
@@ -12482,7 +12419,6 @@ V O
 拜 B-Event
 年 E-Event
 
- O
 ས O
 ྤ O
 ྱ O
@@ -12572,7 +12508,6 @@ V O
 熟 O
 知 O
 
- O
 ད O
 བ O
 ྱ O
@@ -12758,7 +12693,6 @@ V O
 ོ O
 ད O
 
- O
 " O
 ང O
 ་ O
@@ -12893,7 +12827,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 མ O
 ི O
 ང O
@@ -13170,7 +13103,6 @@ V O
 发 O
 展 O
 
- O
 ཆ B-Item
 འ M-Item
 ང M-Item
@@ -13526,7 +13458,6 @@ V O
 生 O
 活 O
 
- O
 ཇ O
 ུ O
 ས O
@@ -13731,7 +13662,6 @@ V O
 景 O
 象 O
 
- O
 ལ B-Festival
 ྷ M-Festival
 ་ M-Festival
@@ -13916,7 +13846,6 @@ V O
 几 O
 句 O
 
- O
 ག B-Item
 ྲ M-Item
 ོ M-Item
@@ -13925,7 +13854,6 @@ V O
 ྙ M-Item
 ེ M-Item
 ། E-Item
- O
 བ O
 ོ O
 ད O
@@ -13977,7 +13905,6 @@ V O
 ོ O
 ད O
 
- O
 འ O
 ག O
 ྲ O
@@ -14169,7 +14096,6 @@ V O
 ོ O
 ད O
 
- O
 འ B-Location
 བ M-Location
 ྲ M-Location
@@ -14259,7 +14185,6 @@ V O
 ེ O
 ད O
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -14417,7 +14342,6 @@ V O
 ེ O
 ད O
 
- O
 ས O
 ྤ O
 ྱ O
@@ -14772,7 +14696,6 @@ V O
 ེ O
 ད O
 
- O
 ཆ B-Item
 འ M-Item
 ང M-Item
@@ -14969,7 +14892,6 @@ V O
 ེ O
 ད O
 
- O
 ག B-Item
 ཡ M-Item
 ུ M-Item
@@ -14988,7 +14910,6 @@ V O
 ཧ M-Item
 ུ M-Item
 ། E-Item
- O
 ས B-Item
 ྤ M-Item
 ོ M-Item
@@ -15042,7 +14963,6 @@ V O
 ེ O
 ད O
 
- O
 བ O
 ྱ O
 ེ O
@@ -15629,7 +15549,6 @@ V O
 藏 B-Event
 戏 E-Event
 
- O
 ལ O
 ྔ O
 ་ O
@@ -15757,7 +15676,6 @@ V O
 福 O
 了 O
 
- O
 ར B-Item
 ོ M-Item
 ལ M-Item
@@ -15806,7 +15724,6 @@ V O
 现 O
 场 O
 
- O
 ཁ O
 ོ O
 ང O
@@ -15865,7 +15782,6 @@ V O
 པ O
 ས O
 
- O
 ད B-Event
 ང M-Event
 ོ M-Event
@@ -15892,7 +15808,6 @@ V O
 ེ M-Event
 ས M-Event
 ། E-Event
- O
 ཁ B-Event
 ྱ M-Event
 ད M-Event
@@ -15922,7 +15837,6 @@ V O
 ང M-Event
 ་ M-Event
 ། E-Event
- O
 མ O
 ི O
 ་ O
@@ -16015,7 +15929,6 @@ V O
 ང O
 ་ O
 
- O
 ད O
 ་ O
 ག O
@@ -16262,7 +16175,6 @@ V O
 上 O
 桌 O
 
- O
 ས B-Location
 ྨ M-Location
 ི M-Location
@@ -16372,7 +16284,6 @@ V O
 ང O
 ་ O
 
- O
 ཁ O
 ོ O
 ང O
@@ -16565,7 +16476,6 @@ V O
 年 O
 丰 O
 
- O
 ས O
 ྲ O
 ོ O
@@ -16945,7 +16855,6 @@ V O
 ོ O
 ས O
 
- O
 ག O
 ཞ O
 ི O
@@ -17060,7 +16969,6 @@ V O
 ཆ O
 ས O
 
- O
 ག O
 ྲ O
 ི O
@@ -17154,7 +17062,6 @@ V O
 解 O
 说 O
 
- O
 ཕ O
 ན O
 ་ O
@@ -17217,7 +17124,6 @@ V O
 ེ O
 ད O
 
- O
 ར O
 ྒ O
 ྱ O
@@ -17340,7 +17246,6 @@ V O
 现 O
 在 O
 
- O
 ད O
 ་ O
 ལ O
@@ -17674,7 +17579,6 @@ V O
 载 O
 舞 O
 
- O
 ཚ O
 ོ O
 ན O
@@ -17765,7 +17669,6 @@ V O
 追 O
 求 O
 
- O
 ར B-Event
 ྟ M-Event
 ་ M-Event
@@ -17787,7 +17690,6 @@ V O
 ་ M-Event
 པ M-Event
 ། E-Event
- O
 ར B-Event
 ྟ M-Event
 ་ M-Event
@@ -17804,7 +17706,6 @@ V O
 ་ M-Event
 བ M-Event
 ། E-Event
- O
 ད B-Event
 ར M-Event
 ་ M-Event
@@ -17976,7 +17877,6 @@ V O
 平 O
 安 O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -18248,7 +18148,6 @@ V O
 ེ O
 ད O
 
- O
 ད O
 ྲ O
 ་ O
@@ -18326,7 +18225,6 @@ V O
 ་ O
 པ O
 
- O
 མ B-Item
 ེ M-Item
 ་ M-Item
@@ -18542,7 +18440,6 @@ V O
 朝 O
 拜 O
 
- O
 བ O
 ཀ O
 ྲ O
@@ -18713,7 +18610,6 @@ V O
 ེ O
 ད O
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -18846,7 +18742,6 @@ V O
 ོ O
 ད O
 
- O
 " O
 འ B-Event
 ཁ M-Event
@@ -19140,7 +19035,6 @@ V O
 作 O
 用 O
 
- O
 ད O
 ྲ O
 ུ O
@@ -19193,7 +19087,6 @@ V O
 པ O
 ོ O
 
- O
 ག O
 ཞ O
 ན O
@@ -19617,7 +19510,6 @@ V O
 新 M-Festival
 年 E-Festival
 
- O
 ད O
 ེ O
 ་ O
@@ -19801,7 +19693,6 @@ V O
 ་ O
 ན O
 
- O
 ག O
 ཞ O
 ན O
@@ -20051,7 +19942,6 @@ V O
 响 O
 起 O
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -20151,7 +20041,6 @@ V O
 ང O
 ་ O
 
- O
 ཚ O
 ང O
 ་ O
@@ -20562,7 +20451,6 @@ V O
 喜 O
 悦 O
 
- O
 ཉ O
 ི O
 ང O
@@ -20674,7 +20562,6 @@ V O
 ོ O
 ད O
 
- O
 ཤ O
 ང O
 ་ O
@@ -20798,7 +20685,6 @@ V O
 ོ O
 ད O
 
- O
 ཟ O
 ླ O
 ་ O
@@ -20927,7 +20813,6 @@ V O
 新 M-Festival
 年 E-Festival
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -20995,7 +20880,6 @@ V O
 ེ O
 ད O
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -21178,7 +21062,6 @@ V O
 ེ O
 ད O
 
- O
 ད O
 པ O
 ྱ O
@@ -21254,7 +21137,6 @@ V O
 ང O
 ་ O
 
- O
 " O
 ཀ O
 ྲ O
@@ -21323,7 +21205,6 @@ V O
 ེ O
 ད O
 
- O
 ལ O
 ོ O
 ་ O
@@ -21417,7 +21298,6 @@ V O
 ེ O
 ད O
 
- O
 ཀ B-Festival
 ོ M-Festival
 ང M-Festival
@@ -21515,7 +21395,6 @@ V O
 村 O
 ’ O
 
- O
 ཕ O
 ྱ O
 ི O
@@ -21946,7 +21825,6 @@ V O
 状 O
 态 O
 
- O
 ག O
 ད O
 ན O
@@ -22124,7 +22002,6 @@ V O
 5 O
 家 O
 
- O
 འ O
 ག O
 ོ O
@@ -22354,7 +22231,6 @@ V O
 ེ O
 ད O
 
- O
 " O
 ཡ O
 ར O
@@ -22686,7 +22562,6 @@ V O
 ོ O
 ན O
 
- O
 ད O
 པ O
 ྱ O
@@ -22948,7 +22823,6 @@ V O
 ེ O
 ད O
 
- O
 ལ O
 ྷ O
 ་ O
@@ -23055,7 +22929,6 @@ V O
 ང O
 ༌ O
 
- O
 ལ O
 ོ O
 ་ O
@@ -23388,7 +23261,6 @@ V O
 年 E-Festival
 ) O
 
- O
 ར O
 ི O
 ག O
@@ -23727,8 +23599,6 @@ V O
 新 O
 年 O
 
- O
- O
 图 O
 为 O
 工 B-Festival
@@ -23756,15 +23626,12 @@ V O
 影 O
 留 O
 念 O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 工 B-Festival
@@ -23786,15 +23653,12 @@ V O
 客 O
 敬 O
 酒 O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 一 O
@@ -23810,15 +23674,12 @@ V O
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 大 O
@@ -23829,15 +23690,12 @@ V O
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
 王 O
 媛 O
 媛 O
- O
- O
 图 O
 为 O
 藏 O
@@ -23852,7 +23710,6 @@ V O
 结 B-Item
 达 E-Item
 ” O
- O
 摄 O
 影 O
 ： O
@@ -23995,7 +23852,6 @@ V O
 来 O
 了 O
 
- O
 ལ O
 ྷ O
 ་ O
@@ -24544,7 +24400,6 @@ V O
 活 O
 动 O
 
- O
 ལ O
 ོ O
 ་ O
@@ -24720,7 +24575,6 @@ V O
 告 O
 别 O
 
- O
 བ O
 ོ O
 ད O
@@ -24889,7 +24743,6 @@ V O
 尊 O
 敬 O
 
- O
 ཉ O
 ི O
 ན O
@@ -25485,7 +25338,6 @@ V O
 可 O
 口 O
 
- O
 ར O
 ི O
 ག O
@@ -25502,7 +25354,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ཀ O
 ུ O
 ན O
@@ -25521,7 +25372,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 བ O
 ར O
 ྩ O
@@ -25540,7 +25390,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 བ O
 ྱ O
 མ O
@@ -25561,7 +25410,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ཤ O
 ེ O
 ས O
@@ -25602,7 +25450,6 @@ V O
 ོ O
 ས O
 
- O
 ཉ B-Location
 ི M-Location
 ང M-Location
@@ -25796,7 +25643,6 @@ V O
 包 O
 裹 O
 
- O
 ད O
 ེ O
 ་ O
@@ -25856,7 +25702,6 @@ V O
 ེ O
 ད O
 
- O
 " O
 ཁ O
 ྱ O
@@ -26152,7 +25997,6 @@ V O
 平 O
 静 O
 
- O
 ར O
 ང O
 ་ O
@@ -26409,7 +26253,6 @@ V O
 ོ O
 ན O
 
- O
 ལ O
 ེ O
 ་ O
@@ -26634,7 +26477,6 @@ V O
 ” O
 夜 O
 
- O
 འ O
 ད O
 ི O
@@ -26965,7 +26807,6 @@ V O
 光 O
 彩 O
 
- O
 ད B-Event
 ང M-Event
 ོ M-Event
@@ -26992,7 +26833,6 @@ V O
 ེ M-Event
 ས M-Event
 ། E-Event
- O
 ཁ B-Event
 ྱ M-Event
 ད M-Event
@@ -27022,7 +26862,6 @@ V O
 ང M-Event
 ་ M-Event
 ། E-Event
- O
 མ O
 ི O
 ་ O
@@ -27115,7 +26954,6 @@ V O
 ང O
 ་ O
 
- O
 ཚ O
 ོ O
 ག O
@@ -27405,7 +27243,6 @@ V O
 到 O
 来 O
 
- O
 ས O
 ྤ O
 ྱ O
@@ -27686,7 +27523,6 @@ V O
 一 O
 新 O
 
- O
 ས O
 ་ O
 ག O
@@ -28049,7 +27885,6 @@ V O
 ེ O
 ད O
 
- O
 " O
 ཁ O
 ྱ O
@@ -28403,7 +28238,6 @@ V O
 拜 O
 年 O
 
- O
 འ O
 ད O
 ི O
@@ -28654,7 +28488,6 @@ V O
 拍 O
 照 O
 
- O
 ཉ B-Location
 ི M-Location
 ང M-Location
@@ -28766,7 +28599,6 @@ V O
 ོ O
 ད O
 
- O
 ར B-Event
 ི M-Event
 ་ M-Event
@@ -28927,7 +28759,6 @@ V O
 新 M-Festival
 年 E-Festival
 
- O
 འ O
 ོ O
 ང O
@@ -29173,7 +29004,6 @@ V O
 ོ O
 ད O
 
- O
 " O
 ཕ O
 ྲ O
@@ -29284,7 +29114,6 @@ V O
 ང O
 ་ O
 
- O
 འ O
 ད O
 ི O
@@ -29629,7 +29458,6 @@ V O
 失 O
 败 O
 
- O
 ཟ O
 ླ O
 ་ O
@@ -29743,7 +29571,6 @@ V O
 ང O
 ་ O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -29903,7 +29730,6 @@ V O
 ཟ O
 ད O
 
- O
 ཚ O
 ང O
 ་ O
@@ -30173,7 +29999,6 @@ V O
 很 O
 多 O
 
- O
 ལ O
 ོ O
 ་ O
@@ -30295,7 +30120,6 @@ V O
 ི O
 ན O
 
- O
 འ O
 ད O
 ི O
@@ -30402,7 +30226,6 @@ V O
 节 E-Festival
 ” O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -30540,7 +30363,6 @@ V O
 ང O
 ་ O
 
- O
 2 O
 0 O
 1 O
@@ -30953,7 +30775,6 @@ V O
 晚 O
 会 O
 
- O
 ལ O
 ྷ O
 ་ O
@@ -31139,7 +30960,6 @@ V O
 边 O
 说 O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -31338,7 +31158,6 @@ V O
 ེ O
 ད O
 
- O
 ག O
 ས O
 ུ O
@@ -31596,7 +31415,6 @@ V O
 之 O
 一 O
 
- O
 བ O
 ོ O
 ད O
@@ -31733,7 +31551,6 @@ V O
 仪 O
 式 O
 
- O
 ཉ O
 ེ O
 ་ O
@@ -31902,7 +31719,6 @@ V O
 ང O
 ་ O
 
- O
 ད O
 ེ O
 ་ O
@@ -32445,7 +32261,6 @@ V O
 唱 M-Event
 歌 E-Event
 
- O
 ད O
 ུ O
 ས O
@@ -32879,7 +32694,6 @@ V O
 尊 O
 敬 O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -33015,7 +32829,6 @@ V O
 ང O
 ་ O
 
- O
 ས O
 ྤ O
 ྱ O
@@ -33214,7 +33027,6 @@ V O
 喜 O
 悦 O
 
- O
 ར B-Event
 ི M-Event
 ག M-Event
@@ -33237,7 +33049,6 @@ V O
 ང O
 ་ O
 
- O
 ས O
 ྐ O
 བ O
@@ -33368,7 +33179,6 @@ V O
 ུ O
 ན O
 
- O
 ད O
 ྭ O
 ང O
@@ -33386,7 +33196,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ང O
 ལ O
 ་ O
@@ -33403,7 +33212,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ལ O
 ྔ O
 ་ O
@@ -33418,7 +33226,6 @@ V O
 ལ O
 ྔ O
 
- O
 ག B-Item
 ྲ M-Item
 ོ M-Item
@@ -33658,7 +33465,6 @@ V O
 敬 B-Event
 酒 E-Event
 
- O
 ཚ O
 ེ O
 ས O
@@ -33949,7 +33755,6 @@ V O
 ེ O
 ད O
 
- O
 ཆ O
 འ O
 ང O
@@ -34159,7 +33964,6 @@ V O
 感 O
 动 O
 
- O
 ས O
 ྔ O
 ་ O
@@ -34248,7 +34052,6 @@ V O
 ང O
 ་ O
 
- O
 ཁ O
 ོ O
 ་ O
@@ -34302,7 +34105,6 @@ V O
 ང O
 ་ O
 
- O
 མ B-Location
 ཚ M-Location
 ོ M-Location
@@ -34548,7 +34350,6 @@ V O
 形 O
 式 O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -34846,7 +34647,6 @@ V O
 之 O
 一 O
 
- O
 ད O
 ་ O
 ད O
@@ -35070,7 +34870,6 @@ V O
 舞 O
 台 O
 
- O
 ལ O
 ུ O
 ས O
@@ -35238,7 +35037,6 @@ V O
 道 O
 路 O
 
- O
 ར O
 ྒ O
 ྱ O
@@ -35269,7 +35067,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ར O
 ྗ O
 ེ O
@@ -35295,7 +35092,6 @@ V O
 ེ M-Festival
 ན M-Festival
 ། E-Festival
- O
 ར O
 ྒ O
 ྱ O
@@ -35350,7 +35146,6 @@ V O
 ཟ O
 ད O
 
- O
 ལ B-Location
 ྷ M-Location
 ་ M-Location
@@ -35553,7 +35348,6 @@ V O
 舞 O
 台 O
 
- O
 ར O
 ྒ O
 ྱ O
@@ -35705,7 +35499,6 @@ V O
 ེ O
 ད O
 
- O
 ཕ O
 ལ O
 ་ O
@@ -35800,8 +35593,6 @@ V O
 盛 O
 行 O
 
- O
- O
 2 O
 0 O
 2 O
@@ -35907,7 +35698,6 @@ V O
 到 O
 来 O
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -36144,7 +35934,6 @@ V O
 排 O
 练 O
 
- O
 ༢ O
 ༠ O
 ༡ O
@@ -36223,7 +36012,6 @@ V O
 ང O
 ་ O
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -36361,7 +36149,6 @@ V O
 气 O
 息 O
 
- O
 ག B-Festival
 ྲ M-Festival
 ི M-Festival
@@ -36406,7 +36193,6 @@ l O
 * O
 ] O
 
- O
 2 O
 0 O
 1 O
@@ -36818,7 +36604,6 @@ l O
 产 O
 业 O
 
- O
 2 O
 0 O
 1 O
@@ -36886,7 +36671,6 @@ l O
 ྟ O
 ེ O
 
- O
 ཆ O
 འ B-Item
 ང M-Item
@@ -36982,7 +36766,6 @@ l O
 ་ O
 ལ O
 
- O
 ཟ O
 ླ O
 ་ O
@@ -37126,7 +36909,6 @@ l O
 ེ O
 ད O
 
- O
 " O
 ཕ O
 ྲ O
@@ -37562,7 +37344,6 @@ l O
 新 M-Festival
 年 E-Festival
 
- O
 ལ O
 ྷ O
 ་ O
@@ -37625,7 +37406,6 @@ l O
 ང O
 ་ O
 
- O
 ག B-Event
 ན M-Event
 ས M-Event
@@ -37646,7 +37426,6 @@ l O
 ོ M-Event
 ར M-Event
 ། E-Event
- O
 མ O
 ཛ O
 འ O
@@ -37701,7 +37480,6 @@ l O
 ང O
 ་ O
 
- O
 ས B-Event
 ྣ M-Event
 ་ M-Event
@@ -37905,7 +37683,6 @@ l O
 ་ M-Event
 པ M-Event
 ། E-Event
- O
 ག O
 ཉ O
 ེ O
@@ -38504,7 +38281,6 @@ l O
 设 O
 等 O
 
- O
 ར O
 ྫ O
 ུ O
@@ -38789,7 +38565,6 @@ l O
 氛 O
 围 O
 
- O
 ས B-Item
 ྐ M-Item
 ེ M-Item
@@ -38808,7 +38583,6 @@ l O
 ེ M-Item
 ན M-Item
 ། E-Item
- O
 ག B-Item
 ས M-Item
 ེ M-Item
@@ -38871,7 +38645,6 @@ l O
 ང O
 ་ O
 
- O
 ཚ O
 ོ O
 ན O
@@ -39193,7 +38966,6 @@ l O
 日 O
 ） O
 
- O
 ད O
 ་ O
 ར O
@@ -39346,7 +39118,6 @@ l O
 ང O
 ་ O
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -39640,7 +39411,6 @@ l O
 ་ M-Location
 པ E-Location
 
- O
 ད O
 ེ O
 ས O
@@ -39994,7 +39764,6 @@ l O
 生 O
 活 O
 
- O
 བ O
 ྲ O
 ག O
@@ -40408,7 +40177,6 @@ l O
 起 O
 伏 O
 
- O
 ཡ O
 ུ O
 ལ O
@@ -40485,7 +40253,6 @@ l O
 ང O
 ་ O
 
- O
 མ O
 ོ O
 ང O
@@ -40713,7 +40480,6 @@ l O
 8 O
 日 O
 
- O
 ས B-Location
 ྣ M-Location
 ེ M-Location
@@ -40865,7 +40631,6 @@ l O
 表 O
 演 O
 
- O
 ར O
 ི O
 ག O
@@ -40981,7 +40746,6 @@ l O
 ེ O
 ད O
 
- O
 ལ B-Location
 ྷ M-Location
 ་ M-Location
@@ -41166,7 +40930,6 @@ l O
 响 O
 起 O
 
- O
 ད O
 པ O
 ྱ O
@@ -41308,7 +41071,6 @@ l O
 奖 O
 项 O
 
- O
 ཉ O
 ེ O
 ་ O
@@ -41477,7 +41239,6 @@ l O
 ང O
 ་ O
 
- O
 ས O
 ་ O
 ག O
@@ -41840,7 +41601,6 @@ l O
 ེ O
 ད O
 
- O
 ད B-Event
 ང M-Event
 ོ M-Event
@@ -41867,7 +41627,6 @@ l O
 ེ M-Event
 ས M-Event
 ། E-Event
- O
 ཁ B-Event
 ྱ M-Event
 ད M-Event
@@ -41897,7 +41656,6 @@ l O
 ང M-Event
 ་ M-Event
 ། E-Event
- O
 མ O
 ི O
 ་ O
@@ -41990,7 +41748,6 @@ l O
 ང O
 ་ O
 
- O
 ཕ O
 ན O
 ་ O
@@ -42176,7 +41933,6 @@ l O
 高 O
 兴 O
 
- O
 ད O
 བ O
 ྱ O
@@ -42574,7 +42330,6 @@ l O
 ོ O
 ད O
 
- O
 2 O
 0 O
 1 O
@@ -43195,7 +42950,6 @@ l O
 新 M-Festival
 年 E-Festival
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -44048,7 +43802,6 @@ l O
 例 O
 子 O
 
- O
 ལ O
 ྷ O
 ་ O
@@ -44201,7 +43954,6 @@ l O
 奖 O
 项 O
 
- O
 འ O
 ག O
 ོ O
@@ -44311,7 +44063,6 @@ l O
 3 O
 年 O
 
- O
 " O
 ཁ O
 ྱ O
@@ -44528,7 +44279,6 @@ l O
 ོ O
 ད O
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -44654,7 +44404,6 @@ l O
 闪 O
 耀 O
 
- O
 མ B-Location
 འ M-Location
 ོ M-Location
@@ -44975,7 +44724,6 @@ l O
 古 B-Item
 突 E-Item
 
- O
 ལ O
 ོ O
 ་ O
@@ -45151,7 +44899,6 @@ l O
 大 O
 笑 O
 
- O
 ༢ O
 ༠ O
 ༡ O
@@ -45388,7 +45135,6 @@ l O
 气 O
 氛 O
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -45440,7 +45186,6 @@ l O
 ང O
 ་ O
 
- O
 ལ O
 ག O
 ་ O
@@ -45569,7 +45314,6 @@ l O
 ོ O
 ད O
 
- O
 ཞ O
 ི O
 ་ O
@@ -45976,7 +45720,6 @@ l O
 鞭 O
 打 O
 
- O
 ཧ O
 ྲ O
 ན O
@@ -46187,7 +45930,6 @@ l O
 པ O
 ས O
 
- O
 ས O
 ྣ O
 ང O
@@ -46447,7 +46189,6 @@ l O
 意 O
 义 O
 
- O
 2 O
 0 O
 1 O
@@ -46552,7 +46293,6 @@ l O
 ེ O
 ད O
 
- O
 ས O
 ྒ O
 ྱ O
@@ -46614,7 +46354,6 @@ l O
 ་ O
 ན O
 
- O
 བ B-Item
 ཙ M-Item
 ས M-Item
@@ -46639,7 +46378,6 @@ l O
 ེ O
 ད O
 
- O
 ད O
 ེ O
 ་ O
@@ -46747,7 +46485,6 @@ l O
 技 O
 艺 O
 
- O
 ཚ O
 ེ O
 ས O
@@ -46794,7 +46531,6 @@ l O
 ེ M-Festival
 ན E-Festival
 
- O
 ཚ O
 ོ O
 ན O
@@ -46921,7 +46657,6 @@ l O
 民 O
 俗 O
 
- O
 མ O
 ང O
 ་ O
@@ -47126,7 +46861,6 @@ l O
 上 O
 演 O
 
- O
 ལ O
 ུ O
 ག O
@@ -47498,7 +47232,6 @@ l O
 恩 O
 情 O
 
- O
 ག O
 ཞ O
 ི O
@@ -47724,7 +47457,6 @@ l O
 运 O
 动 O
 
- O
 བ O
 ོ O
 ད O
@@ -47926,7 +47658,6 @@ l O
 新 M-Festival
 年 E-Festival
 
- O
 འ B-Location
 བ M-Location
 ྲ M-Location
@@ -48248,7 +47979,6 @@ l O
 产 O
 品 O
 
- O
 ཁ O
 ོ O
 ང O
@@ -48380,7 +48110,6 @@ l O
 生 O
 活 O
 
- O
 ག O
 ས O
 ུ O
@@ -48766,7 +48495,6 @@ l O
 材 O
 料 O
 
- O
 ཚ O
 ང O
 ས O
@@ -48864,7 +48592,6 @@ l O
 圆 M-Event
 饭 E-Event
 
- O
 ཟ O
 ླ O
 ་ O
@@ -49032,7 +48759,6 @@ l O
 期 O
 间 O
 
- O
 ས O
 ་ O
 བ O
@@ -49462,7 +49188,6 @@ l O
 色 O
 彩 O
 
- O
 ད O
 ེ O
 ་ O
@@ -49640,7 +49365,6 @@ l O
 下 O
 来 O
 
- O
 ར B-Festival
 ྟ M-Festival
 ་ M-Festival
@@ -49761,7 +49485,6 @@ l O
 遗 O
 产 O
 
- O
 2 O
 0 O
 1 O
@@ -49917,7 +49640,6 @@ l O
 ང O
 ་ O
 
- O
 ར O
 ྔ O
 ་ O
@@ -50377,7 +50099,6 @@ l O
 的 O
 少 O
 
- O
 འ O
 ད O
 ི O
@@ -50738,7 +50459,6 @@ l O
 走 O
 来 O
 
- O
 ག B-Location
 ྲ M-Location
 ི M-Location
@@ -50758,7 +50478,6 @@ l O
 ར O
 ུ O
 
- O
 ས O
 ྒ O
 ོ O
@@ -50910,7 +50629,6 @@ l O
 ོ O
 ད O
 
- O
 ཀ O
 ྲ O
 ུ O
@@ -51528,7 +51246,6 @@ l O
 发 O
 展 O
 
- O
 ཕ O
 ྱ O
 ི O
@@ -51918,7 +51635,6 @@ l O
 撼 O
 动 O
 
- O
 2 O
 0 O
 1 O
@@ -52093,7 +51809,6 @@ l O
 果 M-Festival
 节 E-Festival
 
- O
 བ B-Event
 ས M-Event
 ང M-Event
@@ -52105,7 +51820,6 @@ l O
 ་ M-Event
 བ M-Event
 ། E-Event
- O
 ཞ B-Event
 ལ M-Event
 ་ M-Event
@@ -52121,7 +51835,6 @@ l O
 ་ M-Event
 པ M-Event
 ། E-Event
- O
 ཞ B-Event
 ི M-Event
 ང M-Event
@@ -52273,7 +51986,6 @@ l O
 观 O
 众 O
 
- O
 བ O
 ཟ O
 ོ O
@@ -52327,7 +52039,6 @@ l O
 པ O
 ས O
 
- O
 ཞ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -52527,7 +52238,6 @@ l O
 ང O
 ་ O
 
- O
 h O
 t O
 t O
@@ -52729,7 +52439,6 @@ l O
 祝 O
 福 O
 
- O
 ཚ O
 ེ O
 ས O
@@ -53002,7 +52711,6 @@ l O
 新 M-Festival
 年 E-Festival
 
- O
 2 O
 0 O
 1 O
@@ -53121,7 +52829,6 @@ l O
 ྟ O
 ེ O
 
- O
 བ O
 ྱ O
 ེ O
@@ -53286,7 +52993,6 @@ l O
 ང O
 ་ O
 
- O
 ད O
 ་ O
 ལ O
@@ -53594,7 +53300,6 @@ l O
 祝 O
 福 O
 
- O
 ས O
 ་ O
 ག O
@@ -53912,7 +53617,6 @@ l O
 子 O
 内 O
 
- O
 བ B-Location
 ཟ M-Location
 ང M-Location
@@ -53984,7 +53688,6 @@ l O
 ེ O
 ད O
 
- O
 ས O
 ྤ O
 ྱ O
@@ -54392,7 +54095,6 @@ l O
 唱 M-Event
 歌 E-Event
 
- O
 ལ B-Festival
 ོ M-Festival
 ་ M-Festival
@@ -54525,7 +54227,6 @@ l O
 ོ O
 ད O
 
- O
 མ O
 ཐ O
 ོ O
@@ -54677,7 +54378,6 @@ l O
 ོ O
 ད O
 
- O
 ཚ O
 ོ O
 ན O
@@ -54802,7 +54502,6 @@ l O
 剧 O
 目 O
 
- O
 ས O
 ་ O
 ཡ O
@@ -54899,7 +54598,6 @@ l O
 ར O
 ུ O
 
- O
 ད B-Festival
 ུ M-Festival
 ས M-Festival
@@ -55211,7 +54909,6 @@ l O
 新 M-Festival
 年 E-Festival
 
- O
 ཧ O
 ྲ O
 ང O
@@ -55634,7 +55331,6 @@ l O
 藏 O
 线 O
 
- O
 ཅ O
 ་ O
 ཁ O
@@ -55953,7 +55649,6 @@ l O
 ེ O
 ད O
 
- O
 ཚ O
 ེ O
 ས O
