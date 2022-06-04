@@ -10,6 +10,25 @@ import numpy as np
 import torch
 import torch.nn as nn
 from transformers import XLMRobertaModel, BertModel, AutoModel, AutoModelForMaskedLM
+from configparser import ConfigParser
+
+train_method = "bo_fasttext_bilstm_crf"
+cfg = ConfigParser()
+cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
+batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
+lr = cfg.getfloat(train_method, "lr")
+warmup_rate = cfg.getfloat(train_method, "warmup_rate")
+weight_decay = cfg.getfloat(train_method, "weight_decay")
+patience = cfg.getint(train_method, "patience")
+seed = cfg.getint(train_method, "seed")
+n_epochs = cfg.getint(train_method, "n_epochs")
+logdir = cfg.get(train_method, "logdir")
+language = cfg.get(train_method, "language")
+train_set = cfg.get(train_method, "train_location")
+valid_set = cfg.get(train_method, "valid_location")
+model_name = cfg.get(train_method, "model")
+pretrained_vector = cfg.get(train_method, "pretrained_vector")
+train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
 
 
 def argmax(vec):
@@ -26,18 +45,18 @@ def log_sum_exp(vec):
            torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
 
 
-def log_sum_exp_batch(log_Tensor, axis=-1):  # shape (batch_size,n,m)
-    return torch.max(log_Tensor, axis)[0] + \
-           torch.log(torch.exp(log_Tensor - torch.max(log_Tensor, axis)[0].view(log_Tensor.shape[0], -1, 1)).sum(axis))
+def log_sum_exp_batch(log_tensor, axis=-1):  # shape (batch_size,n,m)
+    return torch.max(log_tensor, axis)[0] + \
+           torch.log(torch.exp(log_tensor - torch.max(log_tensor, axis)[0].view(log_tensor.shape[0], -1, 1)).sum(axis))
 
 
 class Bert_BiLSTM_CRF(nn.Module):
-    def __init__(self, tag_to_ix, hidden_dim=768, train_type='PLM_bilstm_crf', model='CINO'):
+    def __init__(self, tag_to_ix, hidden_dim=768):
         super(Bert_BiLSTM_CRF, self).__init__()
         self.tag_to_ix = tag_to_ix
         self.tagset_size = len(tag_to_ix)
         self.train_type = train_type
-        self.model = model
+        self.model = model_name
         # self.hidden = self.init_hidden()
         if self.model == 'bert':
             self.bert = AutoModel.from_pretrained('model/bert-base-chinese')
@@ -46,7 +65,7 @@ class Bert_BiLSTM_CRF(nn.Module):
         elif self.model == 'Roberta':
             self.bert = AutoModel.from_pretrained('model/roberta-base-bo')
         elif self.model == 'fasttext':
-            self.embedding = nn.Embedding.from_pretrained(torch.from_numpy(np.load('model/bo_wordVectors.npy')),
+            self.embedding = nn.Embedding.from_pretrained(torch.from_numpy(np.load(pretrained_vector)),
                                                           freeze=False)
             hidden_dim = 300
         self.lstm = nn.LSTM(bidirectional=True, num_layers=2, input_size=hidden_dim, hidden_size=hidden_dim // 2,

@@ -1,10 +1,28 @@
-import os
 import numpy as np
 import logging
 import torch
 from torch.utils.data import Dataset
 import collections
 from transformers import XLMRobertaTokenizer, XLMRobertaModel, BertTokenizer, AutoTokenizer
+from configparser import ConfigParser
+
+train_method = "bo_fasttext_bilstm_crf"
+cfg = ConfigParser()
+cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
+batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
+lr = cfg.getfloat(train_method, "lr")
+warmup_rate = cfg.getfloat(train_method, "warmup_rate")
+weight_decay = cfg.getfloat(train_method, "weight_decay")
+patience = cfg.getint(train_method, "patience")
+seed = cfg.getint(train_method, "seed")
+n_epochs = cfg.getint(train_method, "n_epochs")
+logdir = cfg.get(train_method, "logdir")
+language = cfg.get(train_method, "language")
+train_set = cfg.get(train_method, "train_location")
+valid_set = cfg.get(train_method, "valid_location")
+pretrained_dict = cfg.get(train_method, "pretrained_dict")
+model_name = cfg.get(train_method, "model")
+train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
 
 TAGS = ['Festival', 'Item', 'Event', 'Location']
 VOCAB = (
@@ -18,9 +36,8 @@ MAX_LEN = 256 - 2
 
 
 class NerDataset(Dataset):
-    def __init__(self, f_path, model):
-        self.model = model
-
+    def __init__(self, f_path):
+        self.model = model_name
         with open(f_path, 'r', encoding='utf-8') as fr:
             entries = fr.read().strip().split('\n\n')
         sents, tags_li = [], []  # list of lists
@@ -61,7 +78,7 @@ class NerDataset(Dataset):
         elif self.model == 'fasttext':
             # bert_model = 'model/bert-base-chinese'
             # self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
-            self.vocab = np.load('model/bo_wordsDict.npy', allow_pickle=True).item()
+            self.vocab = np.load(pretrained_dict, allow_pickle=True).item()
 
     def __getitem__(self, idx):
 
@@ -80,7 +97,7 @@ class NerDataset(Dataset):
             else:
                 tokens = self.tokenizer.tokenize(w) if w not in ("<CLS>", "<SEP>") else [w]
                 # tokens = w if w not in ("<CLS>", "<SEP>") else [w]
-                xx = self.tokenizer.convert_tokens_to_ids(w)
+                xx = self.tokenizer.convert_tokens_to_ids(tokens)
 
                 # CINO
                 # xx = [xx]
@@ -92,14 +109,11 @@ class NerDataset(Dataset):
                 # is_head = [1] + [0] * (len(xx) - 1)
                 # t = [t] + ['<PAD>'] * (len(xx) - 1)
             # print(xx)
-
-
             # 中文没有英文wordpiece后分成几块的情况
             # print(len(w))
 
             is_heads.extend(is_head)
             yy = [tag2idx[each] for each in t]
-
 
             x.extend(xx)
             y.extend(yy)
@@ -111,7 +125,6 @@ class NerDataset(Dataset):
         # to string
         words = " ".join(words)
         tags = " ".join(tags)
-
 
         assert len(x) == len(y) == len(is_heads), f"len(x)={len(x)}, len(y)={len(y)}, len(is_heads)={len(is_heads)}"
         return words, x, is_heads, tags, y, seqlen
@@ -149,7 +162,7 @@ def get_logger(filename, verbosity=1, name=None):
     logger = logging.getLogger(name)
     logger.setLevel(level_dict[verbosity])
 
-    fh = logging.FileHandler(filename, "w")
+    fh = logging.FileHandler(filename, "w", encoding='utf-8')
     fh.setFormatter(formatter)
     logger.addHandler(fh)
 

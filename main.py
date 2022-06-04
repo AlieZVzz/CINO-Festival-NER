@@ -10,17 +10,17 @@ import torch.nn as nn
 import torch.optim as optim
 import os
 import numpy as np
-import argparse
 from torch.utils import data
 from model.crf import Bert_BiLSTM_CRF
 from transformers import get_cosine_schedule_with_warmup
 from utils import NerDataset, pad, tag2idx, idx2tag, get_logger, f1_score, TAGS
+from configparser import ConfigParser
 
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
 
-    def __init__(self, patience=5, verbose=False, delta=0, train_type='bert_bilstm_crf'):
+    def __init__(self, patience=5, verbose=False, delta=0):
         """
         Args:
             patience (int): How long to wait after last time validation loss improved.
@@ -37,7 +37,6 @@ class EarlyStopping:
         self.early_stop = False
         self.val_f1_min = np.Inf
         self.delta = delta
-        self.train_type = train_type
 
     def __call__(self, val_f1, model):
 
@@ -63,7 +62,7 @@ class EarlyStopping:
 
         # torch.save(model.state_dict(), 'checkpoint.pt')	# 这里会存储迄今最优模型的参数
         torch.save(model,
-                   'checkpoints/' + hp.language + '_' + self.train_type + '_' + str(round(val_f1, 4)) + '_params.pth')
+                   'checkpoints/' + language + '_' + train_type + '_' + str(round(val_f1, 4)) + '_params.pth')
         self.val_f1_min = val_f1
 
 
@@ -128,7 +127,7 @@ def eval(model, iterator, f, device):
             Y.extend(y.numpy().tolist())
             Y_hat.extend(y_hat.cpu().numpy().tolist())
 
-    for tag in TAGS:
+    for tag in saved_metrics:
         recall, precision, f1 = f1_score(Y, Y_hat, tag, tag2idx)
         saved_metrics[tag]['precision'].append(precision)
         saved_metrics[tag]['recall'].append(recall)
@@ -195,79 +194,82 @@ def eval(model, iterator, f, device):
     return np.mean(precision_list), np.mean(recall_list), np.mean(f1_list)
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--batch_size", type=int, default=64)
-parser.add_argument("--lr", type=float, default=0.00001)
-parser.add_argument("--n_epochs", type=int, default=50)
-parser.add_argument("--patience", type=int, default=5)
-parser.add_argument("--seed", type=int, default=2023)
-parser.add_argument("--warmup_rate", type=float, default=0.1)
-parser.add_argument("--weight_decay", type=float, default=1e-4)
-parser.add_argument("--finetuning", dest="finetuning", action="store_true")
-parser.add_argument("--top_rnns", dest="top_rnns", action="store_true")
-parser.add_argument("--logdir", type=str, default="checkpoints/01")
-parser.add_argument("--language", type=str, default="bo")
-parser.add_argument("--trainset", type=str, default="data_collect/bo_train_bmes.txt")
-parser.add_argument("--validset", type=str, default="data_collect/bo_valid_bmes.txt")
-parser.add_argument("--model", type=str, default='CINO')
-parser.add_argument("--fasttext", type=bool, default=False)
-parser.add_argument("--train_type", type=str, default='PLM_bilstm_crf')  # PLM_bilstm_crf bilstm_crf bert_crf
-hp = parser.parse_args()
+train_method = "bo_fasttext_bilstm_crf"
+cfg = ConfigParser()
+cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
+batch_size = cfg.getint(train_method, "batch_size")
+patience = cfg.getint(train_method, "patience")
+seed = cfg.getint(train_method, "seed")
+lr = cfg.getfloat(train_method, "lr")
+n_epochs = cfg.getint(train_method, "n_epochs")
+warmup_rate = cfg.getfloat(train_method, "warmup_rate")
+weight_decay = cfg.getfloat(train_method, "weight_decay")
+logdir = cfg.get(train_method, "logdir")
+language = cfg.get(train_method, "language")
+train_set = cfg.get(train_method, "train_location")
+valid_set = cfg.get(train_method, "valid_location")
+model_name = cfg.get(train_method, "model")
+train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
 
-setup_seed(hp.seed)
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--batch_size", type=int, default=64)
+# parser.add_argument("--lr", type=float, default=0.003)
+# parser.add_argument("--n_epochs", type=int, default=50)
+# parser.add_argument("--patience", type=int, default=5)
+# parser.add_argument("--seed", type=int, default=2024)
+# parser.add_argument("--warmup_rate", type=float, default=0.1)
+# parser.add_argument("--weight_decay", type=float, default=1e-4)
+# parser.add_argument("--finetuning", dest="finetuning", action="store_true")
+# parser.add_argument("--top_rnns", dest="top_rnns", action="store_true")
+# parser.add_argument("--logdir", type=str, default="checkpoints/01")
+# parser.add_argument("--language", type=str, default="bo")
+# parser.add_argument("--trainset", type=str, default="data_collect/bo_train_bmes.txt")
+# parser.add_argument("--validset", type=str, default="data_collect/bo_valid_bmes.txt")
+# parser.add_argument("--model", type=str, default='Roberta')
+# parser.add_argument("--train_type", type=str, default='PLM_bilstm_crf')  # PLM_bilstm_crf bilstm_crf bert_crf
+# hp = parser.parse_args()
+
+saved_metrics = {}
+setup_seed(seed)
 time_stamp = time.strftime("%m-%d-%H-%M", time.localtime())
-early_stopping = EarlyStopping(hp.patience, verbose=True, train_type=hp.train_type)
-logger = get_logger('log/NER_' + hp.language + '_' + hp.model + '_' + hp.train_type + '_' + str(time_stamp) + '.log')
-
+early_stopping = EarlyStopping(patience, verbose=True)
+logger = get_logger('log/NER_' + language.strip('"') + '_' + model_name.strip('"') + '_' + train_type.strip('"') + '_' + str(time_stamp) + '.log')
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 torch.cuda.empty_cache()
 
 # model = nn.DataParallel(model)
 
-train_dataset = NerDataset(hp.trainset, model=hp.model)
-eval_dataset = NerDataset(hp.validset, model=hp.model)
+train_dataset = NerDataset(train_set)
+eval_dataset = NerDataset(valid_set)
+logger.info('Build Data Done')
+model = Bert_BiLSTM_CRF(tag2idx).to(device)
+logger.info('Initial Model Done')
+train_iter = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0, collate_fn=pad)
+eval_iter = data.DataLoader(dataset=eval_dataset, batch_size=batch_size, shuffle=True, num_workers=0, collate_fn=pad)
 logger.info('Load Data Done')
-model = Bert_BiLSTM_CRF(tag2idx, train_type=hp.train_type, model=hp.model).to(device)
-logger.info('Initial model Done')
-train_iter = data.DataLoader(dataset=train_dataset,
-                             batch_size=hp.batch_size,
-                             shuffle=True,
-                             num_workers=0,
-                             collate_fn=pad)
-
-eval_iter = data.DataLoader(dataset=eval_dataset,
-                            batch_size=hp.batch_size,
-                            shuffle=True,
-                            num_workers=0,
-                            collate_fn=pad)
-logger.info('Data Loading Done')
-temp = [{'precision': [], 'recall': [], 'f1': []}] * len(TAGS)
+for ent in TAGS:
+    saved_metrics[ent] = {'precision': [], 'recall': [], 'f1': []}
 param_optimizer = list(model.named_parameters())
 no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
 optimizer_grouped_parameters = [
-    {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': hp.weight_decay},
+    {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': weight_decay},
     {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}]
-saved_metrics = dict(zip(TAGS, temp))
-optimizer = optim.AdamW(optimizer_grouped_parameters, lr=hp.lr)
+optimizer = optim.AdamW(optimizer_grouped_parameters, lr=lr)
 criterion = nn.CrossEntropyLoss(ignore_index=0)
-total_steps = len(train_iter) * hp.batch_size
-scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=hp.warmup_rate * total_steps,
+total_steps = len(train_iter) * batch_size
+scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=warmup_rate * total_steps,
                                             num_training_steps=total_steps)
 
 logger.info('Start Train...,')
-for epoch in range(1, hp.n_epochs + 1):  # 每个epoch对dev集进行测试
-
+for epoch in range(1, n_epochs + 1):  # 每个epoch对dev集进行测试
     train(model, train_iter, optimizer, scheduler, criterion, device, epoch)
-
     logger.info(f"=========eval at epoch={epoch}=========")
-    if not os.path.exists(hp.logdir):
-        os.makedirs(hp.logdir)
-    fname = os.path.join(hp.logdir, str(epoch))
+    if not os.path.exists(logdir):
+        os.makedirs(logdir)
+    fname = os.path.join(logdir, str(epoch))
     precision, recall, f1 = eval(model, eval_iter, fname, device)
-    np.save('checkpoints/' + hp.language + '_' + hp.train_type + '.npy', saved_metrics)
-    early_stopping(f1, model)
-    # 若满足 early stopping 要求
+    np.save('checkpoints/' + language + '_' + train_type + '.npy', saved_metrics)
+    early_stopping(f1, model)  # 若满足 early stopping 要求
     if early_stopping.early_stop:
-        logger.info("Early stopping")
-        # 结束模型训练
+        logger.info("Early stopping")  # 结束模型训练
         break
