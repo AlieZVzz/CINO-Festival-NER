@@ -194,7 +194,7 @@ def eval(model, iterator, f, device):
     return np.mean(precision_list), np.mean(recall_list), np.mean(f1_list)
 
 
-train_method = "bo_fasttext_bilstm_crf"
+train_method = "cn_PLM_crf"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")
@@ -233,7 +233,9 @@ saved_metrics = {}
 setup_seed(seed)
 time_stamp = time.strftime("%m-%d-%H-%M", time.localtime())
 early_stopping = EarlyStopping(patience, verbose=True)
-logger = get_logger('log/NER_' + language.strip('"') + '_' + model_name.strip('"') + '_' + train_type.strip('"') + '_' + str(time_stamp) + '.log')
+logger = get_logger(
+    'log/NER_' + language.strip('"') + '_' + model_name.strip('"') + '_' + train_type.strip('"') + '_' + str(
+        time_stamp) + '.log')
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 torch.cuda.empty_cache()
 

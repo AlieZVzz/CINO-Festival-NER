@@ -6,7 +6,7 @@ import collections
 from transformers import XLMRobertaTokenizer, XLMRobertaModel, BertTokenizer, AutoTokenizer
 from configparser import ConfigParser
 
-train_method = "bo_fasttext_bilstm_crf"
+train_method = "cn_PLM_crf"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -156,9 +156,7 @@ def pad(batch):
 
 def get_logger(filename, verbosity=1, name=None):
     level_dict = {0: logging.DEBUG, 1: logging.INFO, 2: logging.WARNING}
-    formatter = logging.Formatter(
-        "[%(asctime)s][%(filename)s][line:%(lineno)d][%(levelname)s] %(message)s"
-    )
+    formatter = logging.Formatter("%(levelname)s - %(asctime)s - %(message)s")
     logger = logging.getLogger(name)
     logger.setLevel(level_dict[verbosity])
 

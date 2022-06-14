@@ -12,7 +12,7 @@ import torch.nn as nn
 from transformers import XLMRobertaModel, BertModel, AutoModel, AutoModelForMaskedLM
 from configparser import ConfigParser
 
-train_method = "bo_fasttext_bilstm_crf"
+train_method = "cn_PLM_crf"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -214,7 +214,7 @@ class Bert_BiLSTM_CRF(nn.Module):
             # print(enc.shape)
             lstm_feats = self.fc(enc)
             return lstm_feats  # [8, 75, 16]
-        elif self.train_type == 'bert_crf':
+        elif self.train_type == 'PLM_crf':
             embeds = self._bert_enc(sentence)
             lstm_feats = self.fc(embeds)
             return lstm_feats  # [8, 75, 16]

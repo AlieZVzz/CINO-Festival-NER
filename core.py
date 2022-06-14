@@ -71,7 +71,7 @@ def predict(message_text):
             #     print(text_1[z:g])
 
             output = format_result(output, i, tags, text, tag, lang)
-    # with open("predict.json", "w+", encoding='utf-8') as f:
-    #     json.dump(output, f, ensure_ascii=False)
+    with open("output/predict.json", "w+", encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False)
     return output
 
