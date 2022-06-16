@@ -5,6 +5,7 @@ from torch.utils.data import Dataset
 import collections
 from transformers import XLMRobertaTokenizer, XLMRobertaModel, BertTokenizer, AutoTokenizer
 from configparser import ConfigParser
+import random
 
 train_method = "cn_PLM_crf"
 cfg = ConfigParser()
@@ -33,6 +34,13 @@ Color_MAP = {'Festival': '#3772FF', 'Item': '#EF709D', 'Event': '#E2EF70', 'Loca
 tag2idx = {tag: idx for idx, tag in enumerate(VOCAB)}
 idx2tag = {idx: tag for idx, tag in enumerate(VOCAB)}
 MAX_LEN = 256 - 2
+
+
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
 
 
 class NerDataset(Dataset):

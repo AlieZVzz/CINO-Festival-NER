@@ -10,13 +10,16 @@ MODEL_DIR = '.'
 cur_dir = os.path.dirname(__file__)
 db = os.path.join(cur_dir, 'trReviews.sqlite')
 
+
 def sqlite_entry(path, original_text, translation_suggested):
     conn = sqlite3.connect(path)
     c = conn.cursor()
     c.execute("INSERT INTO trReviews (date, OriginalText, TranslationSuggested)" \
-              " VALUES (DATETIME('now'), ?, ?)", (original_text, translation_suggested))
+" VALUES (DATETIME('now'), ?, ?)", (original_text, translation_suggested))
     conn.commit()
     conn.close()
+
+
 # db = os.path.join(cur_dir, 'NER.sqlite')
 #
 #

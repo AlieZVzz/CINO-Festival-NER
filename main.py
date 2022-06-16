@@ -3,7 +3,6 @@
 # Time: 2022/4/1
 # Email: Sparklingdeng@outlook.com
 
-import random
 import time
 import torch
 import torch.nn as nn
@@ -13,7 +12,7 @@ import numpy as np
 from torch.utils import data
 from model.crf import Bert_BiLSTM_CRF
 from transformers import get_cosine_schedule_with_warmup
-from utils import NerDataset, pad, tag2idx, idx2tag, get_logger, f1_score, TAGS
+from utils import NerDataset, pad, tag2idx, idx2tag, get_logger, f1_score, TAGS, setup_seed
 from configparser import ConfigParser
 
 
@@ -56,7 +55,7 @@ class EarlyStopping:
             self.counter = 0
 
     def save_checkpoint(self, val_f1, model):
-        '''Saves model when validation loss decrease.'''
+        # Saves model when validation loss decrease.
         if self.verbose:
             logger.info(f'Validation f1 increased ({self.val_f1_min:.6f} --> {val_f1:.6f}).  Saving model ...')
 
@@ -64,14 +63,6 @@ class EarlyStopping:
         torch.save(model,
                    'checkpoints/' + language + '_' + train_type + '_' + str(round(val_f1, 4)) + '_params.pth')
         self.val_f1_min = val_f1
-
-
-# os.environ['CUDA_VISIBLE_DEVICES'] = '1'
-def setup_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    np.random.seed(seed)
-    random.seed(seed)
 
 
 def train(model, iterator, optimizer, scheduler, criterion, device, epoch):
@@ -118,7 +109,6 @@ def eval(model, iterator, f, device):
             words, x, is_heads, tags, y, seqlens = batch
             x = x.to(device)
             # y = y.to(device)
-
             _, y_hat = model(x)  # y_hat: (N, T)
 
             Words.extend(words)
@@ -137,8 +127,7 @@ def eval(model, iterator, f, device):
         f1_list.append(f1)
         logger.info("tag:%s  Recall:%s  Precision:%s  f1:%s", tag, recall, precision, f1)
 
-    ## gets results and save
-    with open("temp", 'w', encoding='utf-8') as fout:
+    with open("temp", 'w', encoding='utf-8') as fout:  # get results and save
         for words, is_heads, tags, y_hat in zip(Words, Is_heads, Tags, Y_hat):
             y_hat = [hat for head, hat in zip(is_heads, y_hat) if head == 1]
             preds = [idx2tag[hat] for hat in y_hat]
@@ -147,7 +136,6 @@ def eval(model, iterator, f, device):
                 fout.write(f"{w} {t} {p}\n")
             fout.write("\n")
 
-    ## calc metric
     y_true = np.array(
         [tag2idx[line.split()[1]] for line in open("temp", 'r', encoding='utf-8').read().splitlines() if len(line) > 0])
     y_pred = np.array(
@@ -159,23 +147,6 @@ def eval(model, iterator, f, device):
     logger.info("num_proposed:%s", num_proposed)
     logger.info("num_correct:%s", num_correct)
     logger.info("num_gold:%s", num_gold)
-    # try:
-    #     precision = num_correct / num_proposed
-    # except ZeroDivisionError:
-    #     precision = 1.0
-
-    # try:
-    #     recall = num_correct / num_gold
-    # except ZeroDivisionError:
-    #     recall = 1.0
-
-    # try:
-    #     f1 = 2 * precision * recall / (precision + recall)
-    # except ZeroDivisionError:
-    #     if precision * recall == 0:
-    #         f1 = 1.0
-    #     else:
-    #         f1 = 0
 
     final = f + "_epoch" + time_stamp + ".P%.2f_R%.2f_F%.2f.txt" % (
         sum(precision_list) / len(precision_list), sum(recall_list) / len(recall_list), sum(f1_list) / len(f1_list))
@@ -187,91 +158,78 @@ def eval(model, iterator, f, device):
         fout.write(f"f1={np.mean(f1_list)}\n")
 
     os.remove("temp")
-
     logger.info("precision=%.4f", np.mean(precision_list))
     logger.info("recall=%.4f", np.mean(recall_list))
     logger.info("f1=%.4f", np.mean(f1_list))
     return np.mean(precision_list), np.mean(recall_list), np.mean(f1_list)
 
 
-train_method = "cn_PLM_crf"
-cfg = ConfigParser()
-cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
-batch_size = cfg.getint(train_method, "batch_size")
-patience = cfg.getint(train_method, "patience")
-seed = cfg.getint(train_method, "seed")
-lr = cfg.getfloat(train_method, "lr")
-n_epochs = cfg.getint(train_method, "n_epochs")
-warmup_rate = cfg.getfloat(train_method, "warmup_rate")
-weight_decay = cfg.getfloat(train_method, "weight_decay")
-logdir = cfg.get(train_method, "logdir")
-language = cfg.get(train_method, "language")
-train_set = cfg.get(train_method, "train_location")
-valid_set = cfg.get(train_method, "valid_location")
-model_name = cfg.get(train_method, "model")
-train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
+if __name__ == "__main__":
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument("--batch_size", type=int, default=64)
-# parser.add_argument("--lr", type=float, default=0.003)
-# parser.add_argument("--n_epochs", type=int, default=50)
-# parser.add_argument("--patience", type=int, default=5)
-# parser.add_argument("--seed", type=int, default=2024)
-# parser.add_argument("--warmup_rate", type=float, default=0.1)
-# parser.add_argument("--weight_decay", type=float, default=1e-4)
-# parser.add_argument("--finetuning", dest="finetuning", action="store_true")
-# parser.add_argument("--top_rnns", dest="top_rnns", action="store_true")
-# parser.add_argument("--logdir", type=str, default="checkpoints/01")
-# parser.add_argument("--language", type=str, default="bo")
-# parser.add_argument("--trainset", type=str, default="data_collect/bo_train_bmes.txt")
-# parser.add_argument("--validset", type=str, default="data_collect/bo_valid_bmes.txt")
-# parser.add_argument("--model", type=str, default='Roberta')
-# parser.add_argument("--train_type", type=str, default='PLM_bilstm_crf')  # PLM_bilstm_crf bilstm_crf bert_crf
-# hp = parser.parse_args()
+    train_method = "cn_PLM_crf"
+    cfg = ConfigParser()
+    cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
+    batch_size = cfg.getint(train_method, "batch_size")
+    patience = cfg.getint(train_method, "patience")
+    seed = cfg.getint(train_method, "seed")
+    lr = cfg.getfloat(train_method, "lr")
+    n_epochs = cfg.getint(train_method, "n_epochs")
+    warmup_rate = cfg.getfloat(train_method, "warmup_rate")
+    weight_decay = cfg.getfloat(train_method, "weight_decay")
+    logdir = cfg.get(train_method, "logdir")
+    language = cfg.get(train_method, "language")
+    train_set = cfg.get(train_method, "train_location")
+    valid_set = cfg.get(train_method, "valid_location")
+    model_name = cfg.get(train_method, "model")
+    train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
 
-saved_metrics = {}
-setup_seed(seed)
-time_stamp = time.strftime("%m-%d-%H-%M", time.localtime())
-early_stopping = EarlyStopping(patience, verbose=True)
-logger = get_logger(
-    'log/NER_' + language.strip('"') + '_' + model_name.strip('"') + '_' + train_type.strip('"') + '_' + str(
-        time_stamp) + '.log')
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-torch.cuda.empty_cache()
+    setup_seed(seed)
+    time_stamp = time.strftime("%m-%d-%H-%M", time.localtime())
+    saved_metrics = {}
+    for ent in TAGS:
+        saved_metrics[ent] = {'precision': [], 'recall': [], 'f1': []}
+    early_stopping = EarlyStopping(patience, verbose=True)
+    logger = get_logger(
+        'log/NER_' + language.strip('"') + '_' + model_name.strip('"') + '_' + train_type.strip('"') + '_' + str(
+            time_stamp) + '.log')
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    torch.cuda.empty_cache()
 
-# model = nn.DataParallel(model)
+    # model = nn.DataParallel(model)
 
-train_dataset = NerDataset(train_set)
-eval_dataset = NerDataset(valid_set)
-logger.info('Build Data Done')
-model = Bert_BiLSTM_CRF(tag2idx).to(device)
-logger.info('Initial Model Done')
-train_iter = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0, collate_fn=pad)
-eval_iter = data.DataLoader(dataset=eval_dataset, batch_size=batch_size, shuffle=True, num_workers=0, collate_fn=pad)
-logger.info('Load Data Done')
-for ent in TAGS:
-    saved_metrics[ent] = {'precision': [], 'recall': [], 'f1': []}
-param_optimizer = list(model.named_parameters())
-no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
-optimizer_grouped_parameters = [
-    {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': weight_decay},
-    {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}]
-optimizer = optim.AdamW(optimizer_grouped_parameters, lr=lr)
-criterion = nn.CrossEntropyLoss(ignore_index=0)
-total_steps = len(train_iter) * batch_size
-scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=warmup_rate * total_steps,
-                                            num_training_steps=total_steps)
+    train_dataset = NerDataset(train_set)
+    eval_dataset = NerDataset(valid_set)
+    logger.info('Build Data Done')
+    model = Bert_BiLSTM_CRF(tag2idx).to(device)
+    logger.info('Initial Model Done')
+    train_iter = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0,
+                                 collate_fn=pad)
+    eval_iter = data.DataLoader(dataset=eval_dataset, batch_size=batch_size, shuffle=True, num_workers=0,
+                                collate_fn=pad)
+    logger.info('Load Data Done')
 
-logger.info('Start Train...,')
-for epoch in range(1, n_epochs + 1):  # 每个epoch对dev集进行测试
-    train(model, train_iter, optimizer, scheduler, criterion, device, epoch)
-    logger.info(f"=========eval at epoch={epoch}=========")
-    if not os.path.exists(logdir):
-        os.makedirs(logdir)
-    fname = os.path.join(logdir, str(epoch))
-    precision, recall, f1 = eval(model, eval_iter, fname, device)
-    np.save('checkpoints/' + language + '_' + train_type + '.npy', saved_metrics)
-    early_stopping(f1, model)  # 若满足 early stopping 要求
-    if early_stopping.early_stop:
-        logger.info("Early stopping")  # 结束模型训练
-        break
+    param_optimizer = list(model.named_parameters())
+    no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+    optimizer_grouped_parameters = [
+        {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)],
+         'weight_decay': weight_decay},
+        {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}]
+    optimizer = optim.AdamW(optimizer_grouped_parameters, lr=lr)
+    criterion = nn.CrossEntropyLoss(ignore_index=0)
+    total_steps = len(train_iter) * batch_size
+    scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=warmup_rate * total_steps,
+                                                num_training_steps=total_steps)
+
+    logger.info('Start Train...,')
+    for epoch in range(1, n_epochs + 1):  # 每个epoch对dev集进行测试
+        train(model, train_iter, optimizer, scheduler, criterion, device, epoch)
+        logger.info(f"=========eval at epoch={epoch}=========")
+        if not os.path.exists(logdir):
+            os.makedirs(logdir)
+        f_name = os.path.join(logdir, str(epoch))
+        precision, recall, f1 = eval(model, eval_iter, f_name, device)
+        np.save('checkpoints/' + language + '_' + train_type + '.npy', saved_metrics)
+        early_stopping(f1, model)  # 若满足 early stopping 要求
+        if early_stopping.early_stop:
+            logger.info("Early stopping")  # 结束模型训练
+            break
