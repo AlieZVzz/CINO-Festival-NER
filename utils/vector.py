@@ -3,7 +3,7 @@ import numpy as np
 
 embeddings_dict = {}
 word_dict = {}
-with open("../model/cc.bo.300.vec", 'r', encoding="utf-8") as f:
+with open("../model/fasttext_bo/cc.bo.300.vec", 'r', encoding="utf-8") as f:
     for idx, line in enumerate(f):
         values = line.split()
         word = values[0]
