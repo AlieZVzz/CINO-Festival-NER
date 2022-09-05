@@ -27,22 +27,23 @@ def predict(message_text):
     for i, input_str in enumerate(message_text):
         if langid.classify(input_str)[0] == 'dz':
             tokenizer = AutoTokenizer.from_pretrained('model/roberta-base-bo')
-            model = torch.load("checkpoints/bo_PLM_bilstm_crf_0.8331860499312325_params.pth", map_location=device)
+            model = torch.load("checkpoints/bo_PLM_bilstm_crf_0.8433_params.pth", map_location=device)
             lang = 'dz'
             x = tokenizer.encode(input_str)
             # text = tokenizer.decode(x)
-            text = input_str
+
+            text = [tokenizer.convert_ids_to_tokens(j) for j in x]
             output.append({'text': input_str.strip(), "entities": [], "tokenized": text})
             # text = html2text.html2text(text)
 
         elif langid.classify(input_str)[0] == 'zh':
-            bert_model = 'model/bert-base-chinese'
+            bert_model = 'model/roberta-chinese'
             tokenizer = AutoTokenizer.from_pretrained(bert_model)
             model = torch.load('checkpoints/cn_PLM_bilstm_crf_0.9305245629140657_params.pth', map_location=device)
             lang = 'zh'
             # input_str = html2text.html2text(input_str)
             x = tokenizer.encode(input_str)
-            text = tokenizer.decode(x).split(' ')
+            text = [tokenizer.convert_ids_to_tokens(j) for j in x]
             output.append({'text': input_str.strip(), "entities": [], "tokenized": text[1:-1]})
 
         else:

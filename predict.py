@@ -6,7 +6,7 @@ import langid
 import html2text
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-bert_model = 'model/bert-base-chinese'
+bert_model = 'model/roberta-chinese'
 
 # print(langid.classify('藏历新年是藏族人民传统新年，西藏最隆重的节日之一，寺庙僧侣与俗人共同欢庆的节日。'))
 # 载入GPU
@@ -35,7 +35,7 @@ for i, input_str in enumerate(input):
         lang = 'zh'
         # input_str = html2text.html2text(input_str)
         x = tokenizer.encode(input_str)
-        text = tokenizer.decode(x).split(' ')
+        text = [tokenizer.convert_ids_to_tokens(j) for j in x]
 
     else:
         print('wrong language')

@@ -7,7 +7,7 @@ from transformers import XLMRobertaTokenizer, XLMRobertaModel, BertTokenizer, Au
 from configparser import ConfigParser
 import random
 
-train_method = "cn_PLM_crf"
+train_method = "bo_PLM_bilstm"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -75,7 +75,7 @@ class NerDataset(Dataset):
                 tags_li.append(['<CLS>'] + tags[:MAX_LEN] + ['<SEP>'])
         self.sents, self.tags_li = sents, tags_li
         if self.model == 'bert':
-            bert_model = 'model/bert-base-chinese'
+            bert_model = 'model/roberta-chinese'
             self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
         elif self.model == 'CINO':
             bert_model = 'model/CINO_base'
@@ -83,8 +83,16 @@ class NerDataset(Dataset):
         elif self.model == 'Roberta':
             bert_model = 'model/roberta-base-bo'
             self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
+        elif self.model == 'bert-base':
+            bert_model = 'bert-base-chinese'
+            self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
+        elif self.model == 'albert':
+            bert_model = 'ckiplab/albert-tiny-chinese'
+            self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
+        elif self.model == 'ernie':
+            self.tokenizer = AutoTokenizer.from_pretrained('model/ernie')
         elif self.model == 'fasttext':
-            # bert_model = 'model/bert-base-chinese'
+            # bert_model = 'model/roberta-chinese'
             # self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
             self.vocab = np.load(pretrained_dict, allow_pickle=True).item()
 
@@ -256,9 +264,9 @@ def format_result(output, index, result, text, tag, lang):
             })
         elif lang == 'dz':
             entity_dict.append({
-                "start": begin,
+                "start": begin-1,
                 "stop": end,
-                "entity": ''.join(text[begin - 1:end]),
+                "entity": ''.join(text[begin:end+1]),
                 "type": tag,
                 "color": Color_MAP.get(tag)
             })

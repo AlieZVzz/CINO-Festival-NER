@@ -61,7 +61,8 @@ class EarlyStopping:
 
         # torch.save(model.state_dict(), 'checkpoint.pt')	# 这里会存储迄今最优模型的参数
         torch.save(model,
-                   'checkpoints/' + language + '_' + train_type + '_' + str(round(val_f1, 4)) + '_params.pth')
+                   'checkpoints/' + language + '_' + model_name + '_' + train_type + '_' + str(
+                       round(val_f1, 4)) + '_params.pth')
         self.val_f1_min = val_f1
 
 
@@ -72,7 +73,11 @@ def train(model, iterator, optimizer, scheduler, criterion, device, epoch):
         x = x.to(device)
         y = y.to(device)
         _y = y  # for monitoring
-        loss = model.neg_log_likelihood(x, y)  # logits: (N, T, VOCAB), y: (N, T)
+        if train_type == "PLM_bilstm":
+            output = model(x)
+            loss = criterion(output, y)
+        else:
+            loss = model.neg_log_likelihood(x, y)  # logits: (N, T, VOCAB), y: (N, T)
 
         # logits = logits.view(-1, logits.shape[-1]) # (N*T, VOCAB)
         # y = y.view(-1)  # (N*T,)
@@ -89,9 +94,9 @@ def train(model, iterator, optimizer, scheduler, criterion, device, epoch):
             # print(words[0])
             # print(type(words[0]))
             logger.info("words:%s", words[0])
-            logger.info("x:%s", x.cpu().numpy()[0][:seqlens[0]])
+            logger.info("x:%s", x.cpu().tolist()[0][:seqlens[0]])
             # logger.info("tokens:", tokenizer.convert_ids_to_tokens(x.cpu().numpy()[0])[:seqlens[0]])
-            logger.info("y:%s", _y.cpu().numpy()[0][:seqlens[0]])
+            logger.info("y:%s", _y.cpu()[0][:seqlens[0]])
             logger.info("tags:%s", tags[0])
             logger.info("seqlen:%s", seqlens[0])
             logger.info("=======================")
@@ -109,7 +114,11 @@ def eval(model, iterator, f, device):
             words, x, is_heads, tags, y, seqlens = batch
             x = x.to(device)
             # y = y.to(device)
-            _, y_hat = model(x)  # y_hat: (N, T)
+            if train_type == "PLM_bilstm":
+                y_hat = model(x)
+                y_hat = torch.argmax(y_hat, 1)
+            else:
+                _, y_hat = model(x)  # y_hat: (N, T)
 
             Words.extend(words)
             Is_heads.extend(is_heads)
@@ -148,7 +157,7 @@ def eval(model, iterator, f, device):
     logger.info("num_correct:%s", num_correct)
     logger.info("num_gold:%s", num_gold)
 
-    final = f + "_epoch" + time_stamp + ".P%.2f_R%.2f_F%.2f.txt" % (
+    final = f + "_epoch_" + time_stamp + '_' + model_name + "{P%.2fR%.2fF%.2f}.txt" % (
         sum(precision_list) / len(precision_list), sum(recall_list) / len(recall_list), sum(f1_list) / len(f1_list))
     with open(final, 'w', encoding='utf-8') as fout:
         result = open("temp", "r", encoding='utf-8').read()
@@ -166,7 +175,7 @@ def eval(model, iterator, f, device):
 
 if __name__ == "__main__":
 
-    train_method = "cn_PLM_crf"
+    train_method = "bo_PLM_bilstm"
     cfg = ConfigParser()
     cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
     batch_size = cfg.getint(train_method, "batch_size")
@@ -181,7 +190,7 @@ if __name__ == "__main__":
     train_set = cfg.get(train_method, "train_location")
     valid_set = cfg.get(train_method, "valid_location")
     model_name = cfg.get(train_method, "model")
-    train_type = cfg.get(train_method, "train_type")  # 对于bool值，更推荐getboolean，支持0和1转换为bool值
+    train_type = cfg.get(train_method, "train_type")
 
     setup_seed(seed)
     time_stamp = time.strftime("%m-%d-%H-%M", time.localtime())
@@ -228,7 +237,7 @@ if __name__ == "__main__":
             os.makedirs(logdir)
         f_name = os.path.join(logdir, str(epoch))
         precision, recall, f1 = eval(model, eval_iter, f_name, device)
-        np.save('checkpoints/' + language + '_' + train_type + '.npy', saved_metrics)
+        np.save('checkpoints/' + language + '_' + train_type + '_' + model_name + '.npy', saved_metrics)
         early_stopping(f1, model)  # 若满足 early stopping 要求
         if early_stopping.early_stop:
             logger.info("Early stopping")  # 结束模型训练

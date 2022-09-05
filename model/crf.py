@@ -12,7 +12,7 @@ import torch.nn as nn
 from transformers import XLMRobertaModel, BertModel, AutoModel, AutoModelForMaskedLM
 from configparser import ConfigParser
 
-train_method = "cn_PLM_crf"
+train_method = "bo_PLM_bilstm"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -59,11 +59,18 @@ class Bert_BiLSTM_CRF(nn.Module):
         self.model = model_name
         # self.hidden = self.init_hidden()
         if self.model == 'bert':
-            self.bert = AutoModel.from_pretrained('model/bert-base-chinese')
+            self.bert = AutoModel.from_pretrained('model/roberta-chinese')
         elif self.model == 'CINO':
             self.bert = AutoModel.from_pretrained('model/CINO_base')
         elif self.model == 'Roberta':
             self.bert = AutoModel.from_pretrained('model/roberta-base-bo')
+        elif self.model == 'bert-base':
+            self.bert = AutoModel.from_pretrained('bert-base-chinese')
+        elif self.model == 'albert':
+            self.bert = AutoModel.from_pretrained('ckiplab/albert-tiny-chinese')
+            hidden_dim = 312
+        elif self.model == 'ernie':
+            self.bert = AutoModel.from_pretrained('model/ernie')
         elif self.model == 'fasttext':
             self.embedding = nn.Embedding.from_pretrained(torch.from_numpy(np.load(pretrained_vector)),
                                                           freeze=False)
@@ -109,7 +116,7 @@ class Bert_BiLSTM_CRF(nn.Module):
         batch_size = feats.shape[0]
 
         # alpha_recursion,forward, alpha(zt)=p(zt,bar_x_1:t)
-        log_alpha = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(self.device)  # [batch_size, 1, 16]
+        log_alpha = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cpu"))  # [batch_size, 1, 16]
         # normal_alpha_0 : alpha[0]=Ot[0]*self.PIs
         # self.start_label has all of the score. it is log,0 is p=1
         log_alpha[:, 0, self.start_label_id] = 0
@@ -163,7 +170,7 @@ class Bert_BiLSTM_CRF(nn.Module):
 
         # batch_transitions=self.transitions.expand(batch_size,self.tagset_size,self.tagset_size)
 
-        log_delta = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(self.device)
+        log_delta = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cpu"))
         log_delta[:, 0, self.start_label_id] = 0.
 
         # psi is for the vaule of the last latent that make P(this_latent) maximum.
@@ -198,7 +205,7 @@ class Bert_BiLSTM_CRF(nn.Module):
         """sentence is the ids"""
         # self.hidden = self.init_hidden()
         # print(sentence.shape)
-        if self.train_type == 'PLM_bilstm_crf':
+        if self.train_type in ['PLM_bilstm_crf', 'PLM_bilstm']:
             embeds = self._bert_enc(sentence)
             # 过lstm
             enc, _ = self.lstm(embeds)
@@ -224,5 +231,11 @@ class Bert_BiLSTM_CRF(nn.Module):
 
         lstm_feats = self._get_lstm_features(sentence)  # [8, 180,768]
         # Find the best path, given the features.
-        score, tag_seq = self._viterbi_decode(lstm_feats)
-        return score, tag_seq
+        if self.train_type == 'PLM_bilstm':
+            lstm_feats = lstm_feats.transpose(1, 2)
+
+            # print(output.shape)
+            return lstm_feats
+        else:
+            score, tag_seq = self._viterbi_decode(lstm_feats)
+            return score, tag_seq

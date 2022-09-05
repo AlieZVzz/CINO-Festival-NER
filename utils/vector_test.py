@@ -1,4 +1,4 @@
 import numpy as np
 
-vector = np.load('../model/fasttext_cn/cn_wordsDict.npy', allow_pickle=True)
-print(type(vector))
+vector = np.load('../model/fasttext_bo/bo_wordsDict.npy', allow_pickle=True)
+print(vector)
