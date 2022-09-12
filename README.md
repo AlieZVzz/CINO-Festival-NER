@@ -78,7 +78,7 @@ D:.
   <td valign="top" style="border-top:solid #7F7F7F 1.0pt;border-left:none;
   border-bottom:solid #7F7F7F 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;
   height:2.85pt">
-  <p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US" style="font-size:10.5pt;font-family:&quot;Times New Roman&quot;,serif"><img width="12" height="21" src="2022-0698%209.2.files/image013.png"></span></p>
+  <p class="MsoNormal" align="center" style="text-align:center"><span lang="EN-US" style="font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif">F1</span></p>
   </td>
  </tr>
  <tr style="height:2.85pt">
@@ -169,4 +169,5 @@ D:.
 </tbody></table>
 
 ## Usage
-在model文件夹中对应的预训练模型文件夹中放入pytorch模型，并在data_collect文件夹中放入对应语言的txt文件，运行main.py文件即可
+在model文件夹中对应的预训练模型文件夹中放入pytorch模型，并在data_collect文件夹中放入对应语言的txt文件，修改main.py、utils.py、crf.py文件中的train_method。
+运行main.py文件即可
