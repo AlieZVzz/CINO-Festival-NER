@@ -167,9 +167,8 @@ D:.
   </td>
  </tr>
 </tbody></table>
+  
 
-<br />
-
-## Usage
+## Usage  
 在model文件夹中对应的预训练模型文件夹中放入pytorch模型，并在data_collect文件夹中放入对应语言的txt文件，修改main.py、utils.py、crf.py文件中的train_method。
 运行main.py文件即可
