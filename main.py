@@ -91,8 +91,6 @@ def train(model, iterator, optimizer, scheduler, criterion, device, epoch):
 
         if i == 0:
             logger.info("=====sanity check======")
-            # print(words[0])
-            # print(type(words[0]))
             logger.info("words:%s", words[0])
             logger.info("x:%s", x.cpu().tolist()[0][:seqlens[0]])
             # logger.info("tokens:", tokenizer.convert_ids_to_tokens(x.cpu().numpy()[0])[:seqlens[0]])
@@ -175,7 +173,7 @@ def eval(model, iterator, f, device):
 
 if __name__ == "__main__":
 
-    train_method = "bo_PLM_bilstm"
+    train_method = "bo_PLM_crf"
     cfg = ConfigParser()
     cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
     batch_size = cfg.getint(train_method, "batch_size")

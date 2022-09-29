@@ -12,7 +12,7 @@ import torch.nn as nn
 from transformers import XLMRobertaModel, BertModel, AutoModel, AutoModelForMaskedLM
 from configparser import ConfigParser
 
-train_method = "bo_PLM_bilstm"
+train_method = "bo_PLM_crf"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -116,7 +116,7 @@ class Bert_BiLSTM_CRF(nn.Module):
         batch_size = feats.shape[0]
 
         # alpha_recursion,forward, alpha(zt)=p(zt,bar_x_1:t)
-        log_alpha = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cpu"))  # [batch_size, 1, 16]
+        log_alpha = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cuda"))  # [batch_size, 1, 16]
         # normal_alpha_0 : alpha[0]=Ot[0]*self.PIs
         # self.start_label has all of the score. it is log,0 is p=1
         log_alpha[:, 0, self.start_label_id] = 0
@@ -170,7 +170,7 @@ class Bert_BiLSTM_CRF(nn.Module):
 
         # batch_transitions=self.transitions.expand(batch_size,self.tagset_size,self.tagset_size)
 
-        log_delta = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cpu"))
+        log_delta = torch.Tensor(batch_size, 1, self.tagset_size).fill_(-10000.).to(torch.device("cuda"))
         log_delta[:, 0, self.start_label_id] = 0.
 
         # psi is for the vaule of the last latent that make P(this_latent) maximum.

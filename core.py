@@ -1,17 +1,3 @@
-import re
-import logging
-from subword_nmt import apply_bpe
-from sacremoses import MosesTokenizer, MosesDetokenizer
-import torch
-import json
-from utils import get_tags, format_result, tag2idx, TAGS, idx2tag
-from transformers import BertTokenizer, AutoTokenizer
-import langid
-from joeynmt.helpers import load_config, get_latest_checkpoint, \
-    load_checkpoint
-from joeynmt.vocabulary import build_vocab
-from joeynmt.model import build_model
-from joeynmt.prediction import validate_on_data
 import torch
 import json
 from utils import get_tags, format_result, tag2idx, TAGS, idx2tag

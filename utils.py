@@ -7,7 +7,7 @@ from transformers import XLMRobertaTokenizer, XLMRobertaModel, BertTokenizer, Au
 from configparser import ConfigParser
 import random
 
-train_method = "bo_PLM_bilstm"
+train_method = "bo_PLM_crf"
 cfg = ConfigParser()
 cfg.read("config/Chinese_Tibetan_Config.ini", encoding='utf-8')
 batch_size = cfg.getint(train_method, "batch_size")  # 所有的参数都能用get去读成文本
@@ -37,10 +37,13 @@ MAX_LEN = 256 - 2
 
 
 def setup_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    np.random.seed(seed)
-    random.seed(seed)
+    torch.manual_seed(seed)  # Current CPU
+    torch.cuda.manual_seed(seed)  # Current GPU
+    np.random.seed(seed)  # Numpy module
+    random.seed(seed)  # Python random module
+    torch.backends.cudnn.benchmark = False  # Close optimization
+    torch.backends.cudnn.deterministic = True  # Close optimization
+    # torch.cuda.manual_seed_all(seed)  # All GPU (Optional)
 
 
 class NerDataset(Dataset):

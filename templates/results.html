@@ -29,17 +29,17 @@
   </div>
 
 <div class = "output-model">
-  <h3 align="center" style="color: black"> 输入原文</h3>
-  <div class="text-center" style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98)">
-    <font size="4"> {{ message }} </font>
+  <h3  style="color: black"> 输入原文</h3>
+  <div class="text-center" style="min-width: 100%; font-size:12px; overflow: auto; border:0;border-radius:5px;background-color:rgba(241,241,241,.98);">
+    {{ message }}
   </div>
   <p></p>
   
-  <h3 align="center" style="color: black"> 输出可视化 </h3>
-  <div id='box' style="justify-content: center;border:0;border-radius:5px;background-color:rgba(241,241,241,.98)"></div>
-  <h3 align="center" id="predict_text" style="color: black;"> 模型预测值(点击可展开) </h3>
+  <h3 style="color: black"> 输出可视化 </h3>
+  <div id='box' style="justify-content: center;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);min-width: 100%"></div>
+  <h3  id="predict_text" style="color: black;"> 模型预测值(点击可展开) </h3>
   <div class="text-center" id="predict_value" style="display: none; border:0;border-radius:5px;background-color:rgba(241,241,241,.98)">
-    <font size="4"> {{ answer }} </font>
+   {{ answer }}
   </div>
   <div class="wrap-content" style="display: flex;justify-content: space-around;">
     <div class="text-center">
