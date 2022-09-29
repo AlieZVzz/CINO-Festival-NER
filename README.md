@@ -14,7 +14,7 @@ In this study, Chinese-Tibetan bilingual text data containing information on Tib
 
 To install the environment using Conda:
 ```bash
-$ conda env create -f requirements.yml
+$ conda env create -f requirements.txt
 ```
 ## Running
 ### Train
