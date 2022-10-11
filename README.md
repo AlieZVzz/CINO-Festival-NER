@@ -45,7 +45,7 @@ $ python app.py
       <p>召回率</p>
     </td>
     <td>
-      <p></p>
+      <p>F1</p>
     </td>
   </tr>
   <tr>
